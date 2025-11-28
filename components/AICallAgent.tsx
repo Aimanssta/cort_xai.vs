@@ -47,8 +47,11 @@ const AICallAgent: React.FC = () => {
 
       // Get Retell API key from environment
       const apiKey = import.meta.env.VITE_RETELL_API_KEY;
-      if (!apiKey) {
-        console.error('Retell API key not found. Please set VITE_RETELL_API_KEY environment variable.');
+      const agentId = import.meta.env.VITE_RETELL_AGENT_ID;
+      
+      if (!apiKey || !agentId) {
+        console.error('Retell API credentials not found. Please set VITE_RETELL_API_KEY and VITE_RETELL_AGENT_ID environment variables.');
+        alert('AI Call Agent is not configured yet. Please contact support.');
         setState(prev => ({ ...prev, isCallStarting: false }));
         return;
       }
