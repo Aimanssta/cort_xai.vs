@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, X, MessageCircle } from 'lucide-react';
+import { Phone, X, MessageCircle, Mic, MicOff } from 'lucide-react';
+import { RetellWebClient } from 'retell-client-js-sdk';
 
 interface CallState {
   isOpen: boolean;
   isCallActive: boolean;
   isCallStarting: boolean;
   callDuration: number;
+  isMuted: boolean;
+  transcript: string;
   collectedData: {
     name: string;
     email: string;
@@ -21,17 +24,42 @@ const AICallAgent: React.FC = () => {
     isCallActive: false,
     isCallStarting: false,
     callDuration: 0,
+    isMuted: false,
+    transcript: '',
     collectedData: { name: '', email: '', phone: '', company: '', interest: '' },
   });
 
-  const audioRef = useRef<HTMLAudioElement>(null);
   const callTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const retellWebSocketRef = useRef<WebSocket | null>(null);
+  const retellClientRef = useRef<RetellWebClient | null>(null);
 
-  // Initialize Retell AI WebSocket connection
+  // Initialize Retell Client once
   useEffect(() => {
-    if (state.isCallActive && !retellWebSocketRef.current) {
-      initializeRetellConnection();
+    if (!retellClientRef.current) {
+      retellClientRef.current = new RetellWebClient();
+
+      // Setup event listeners
+      retellClientRef.current.on('call_started', () => {
+        console.log('Call started');
+        setState(prev => ({ ...prev, isCallStarting: false }));
+      });
+
+      retellClientRef.current.on('call_ended', () => {
+        console.log('Call ended');
+        endCall();
+      });
+
+      retellClientRef.current.on('agent_start_talking', () => {
+        console.log('Agent is speaking');
+      });
+
+      retellClientRef.current.on('agent_stop_talking', () => {
+        console.log('Agent stopped speaking');
+      });
+
+      retellClientRef.current.on('transcript', (data: any) => {
+        console.log('Transcript:', data);
+        setState(prev => ({ ...prev, transcript: (prev.transcript + ' ' + (data?.transcript || '')).trim() }));
+      });
     }
 
     return () => {
@@ -39,101 +67,73 @@ const AICallAgent: React.FC = () => {
         clearInterval(callTimerRef.current);
       }
     };
-  }, [state.isCallActive]);
+  }, []);
 
-  const initializeRetellConnection = async () => {
+  const startCall = async () => {
     try {
       setState(prev => ({ ...prev, isCallStarting: true }));
 
-      // Get Retell API key from environment
-      const apiKey = import.meta.env.VITE_RETELL_API_KEY;
-      const agentId = import.meta.env.VITE_RETELL_AGENT_ID;
-      
-      if (!apiKey || !agentId) {
-        console.error('Retell API credentials not found. Please set VITE_RETELL_API_KEY and VITE_RETELL_AGENT_ID environment variables.');
-        alert('AI Call Agent is not configured yet. Please contact support.');
+      // Get access token from backend
+      const response = await fetch('/api/create-call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          agent_id: import.meta.env.VITE_RETELL_AGENT_ID,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create call');
+      }
+
+      const data = await response.json();
+      const accessToken = data.access_token;
+
+      if (!accessToken) {
+        alert('Failed to get access token for call');
         setState(prev => ({ ...prev, isCallStarting: false }));
         return;
       }
 
-      // Initialize WebRTC for audio
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      if (audioRef.current) {
-        audioRef.current.srcObject = stream;
+      const client = retellClientRef.current;
+      if (!client) {
+        alert('Retell client not initialized');
+        setState(prev => ({ ...prev, isCallStarting: false }));
+        return;
       }
 
+      // Start the call with access token
+      await client.startCall({
+        accessToken: accessToken,
+      });
+
+      // Start audio playback
+      await client.startAudioPlayback();
+
       // Start call timer
-      setState(prev => ({ ...prev, callDuration: 0 }));
+      setState(prev => ({ ...prev, isCallActive: true, callDuration: 0 }));
       callTimerRef.current = setInterval(() => {
         setState(prev => ({ ...prev, callDuration: prev.callDuration + 1 }));
       }, 1000);
-
-      // Here you would connect to Retell AI WebSocket
-      // This is a placeholder - actual implementation depends on Retell AI SDK
-      connectToRetellAI(apiKey);
-
+    } catch (error) {
+      console.error('Failed to start call:', error);
+      alert('Failed to start call. Please check your configuration and try again.');
       setState(prev => ({ ...prev, isCallStarting: false }));
-    } catch (error) {
-      console.error('Failed to initialize call:', error);
-      setState(prev => ({ ...prev, isCallStarting: false, isCallActive: false }));
-      alert('Failed to start call. Please check your microphone permissions.');
     }
-  };
-
-  const connectToRetellAI = (apiKey: string) => {
-    // WebSocket URL for Retell AI (placeholder - replace with actual Retell endpoint)
-    const wsUrl = `wss://api.retellai.com/v2/ws`;
-
-    try {
-      retellWebSocketRef.current = new WebSocket(wsUrl);
-
-      retellWebSocketRef.current.onopen = () => {
-        console.log('Connected to Retell AI');
-        // Send initial handshake
-        retellWebSocketRef.current?.send(JSON.stringify({
-          type: 'register',
-          apiKey: apiKey,
-          agentId: import.meta.env.VITE_RETELL_AGENT_ID || 'default-agent',
-        }));
-      };
-
-      retellWebSocketRef.current.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        console.log('Retell message:', data);
-        // Handle messages from Retell (audio, transcripts, etc.)
-      };
-
-      retellWebSocketRef.current.onerror = (error) => {
-        console.error('Retell WebSocket error:', error);
-      };
-
-      retellWebSocketRef.current.onclose = () => {
-        console.log('Disconnected from Retell AI');
-        endCall();
-      };
-    } catch (error) {
-      console.error('Failed to connect to Retell AI:', error);
-      endCall();
-    }
-  };
-
-  const startCall = async () => {
-    setState(prev => ({ ...prev, isCallActive: true }));
   };
 
   const endCall = () => {
+    try {
+      if (retellClientRef.current) {
+        retellClientRef.current.stopCall();
+      }
+    } catch (error) {
+      console.error('Error stopping call:', error);
+    }
+
     if (callTimerRef.current) {
       clearInterval(callTimerRef.current);
-    }
-
-    if (retellWebSocketRef.current) {
-      retellWebSocketRef.current.close();
-      retellWebSocketRef.current = null;
-    }
-
-    if (audioRef.current && audioRef.current.srcObject) {
-      const stream = audioRef.current.srcObject as MediaStream;
-      stream.getTracks().forEach(track => track.stop());
+      callTimerRef.current = null;
     }
 
     setState(prev => ({
@@ -142,6 +142,21 @@ const AICallAgent: React.FC = () => {
       isCallStarting: false,
       callDuration: 0,
     }));
+  };
+
+  const toggleMute = () => {
+    try {
+      if (retellClientRef.current) {
+        if (state.isMuted) {
+          retellClientRef.current.unmute();
+        } else {
+          retellClientRef.current.mute();
+        }
+        setState(prev => ({ ...prev, isMuted: !prev.isMuted }));
+      }
+    } catch (error) {
+      console.error('Error toggling mute:', error);
+    }
   };
 
   const handleDataChange = (field: keyof CallState['collectedData'], value: string) => {
@@ -155,7 +170,6 @@ const AICallAgent: React.FC = () => {
   };
 
   const handleSubmitData = async () => {
-    // Send collected data to your backend or CRM
     try {
       const response = await fetch('/api/leads', {
         method: 'POST',
@@ -189,7 +203,7 @@ const AICallAgent: React.FC = () => {
       {!state.isOpen && (
         <button
           onClick={() => setState(prev => ({ ...prev, isOpen: true }))}
-          className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 z-40 flex items-center gap-2 group"
+          className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 z-40 flex items-center gap-2 group animate-bounce"
           title="Start AI Call"
         >
           <Phone className="w-6 h-6" />
@@ -202,7 +216,7 @@ const AICallAgent: React.FC = () => {
       {/* Modal */}
       {state.isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-end sm:items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-96 overflow-hidden flex flex-col">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[600px] overflow-hidden flex flex-col">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -210,7 +224,9 @@ const AICallAgent: React.FC = () => {
                 <div>
                   <h3 className="font-bold text-lg">AI Sales Agent</h3>
                   {state.isCallActive && (
-                    <p className="text-xs text-blue-100">Call active • {formatDuration(state.callDuration)}</p>
+                    <p className="text-xs text-blue-100">
+                      Call active • {formatDuration(state.callDuration)}
+                    </p>
                   )}
                 </div>
               </div>
@@ -226,11 +242,12 @@ const AICallAgent: React.FC = () => {
             </div>
 
             {/* Content */}
-            <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 overflow-y-auto p-6 space-y-4">
               {!state.isCallActive ? (
-                <div className="space-y-4">
+                <>
                   <p className="text-gray-700 text-sm">
-                    Welcome! I'm an AI agent ready to answer your questions about our services and help you get started.
+                    Welcome! I'm an AI agent ready to answer your questions about our AI sales
+                    agents, lead generation tools, and local SEO solutions.
                   </p>
                   <button
                     onClick={startCall}
@@ -240,36 +257,61 @@ const AICallAgent: React.FC = () => {
                     <Phone className="w-5 h-5" />
                     {state.isCallStarting ? 'Connecting...' : 'Start Call'}
                   </button>
-                </div>
+                </>
               ) : (
-                <div className="space-y-4">
-                  {/* Audio Element (hidden) */}
-                  <audio ref={audioRef} autoPlay playsInline />
-
-                  <div className="bg-blue-50 p-4 rounded-lg text-center">
+                <>
+                  {/* Call Interface */}
+                  <div className="bg-blue-50 p-6 rounded-lg text-center space-y-4">
                     <div className="animate-pulse">
-                      <div className="w-12 h-12 bg-blue-500 rounded-full mx-auto mb-2"></div>
-                      <p className="text-sm text-gray-600">Listening...</p>
+                      <div className="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <Mic className="w-8 h-8 text-white" />
+                      </div>
+                      <p className="text-sm text-gray-600 font-medium">Listening...</p>
                     </div>
                   </div>
 
-                  <p className="text-xs text-gray-500 text-center">
-                    You can speak naturally. The agent will answer your questions about our AI sales agents, lead generation, and local SEO solutions.
-                  </p>
+                  {/* Transcript */}
+                  {state.transcript && (
+                    <div className="bg-gray-50 p-3 rounded-lg max-h-24 overflow-y-auto">
+                      <p className="text-xs text-gray-600 font-semibold mb-1">Conversation:</p>
+                      <p className="text-sm text-gray-700">{state.transcript}</p>
+                    </div>
+                  )}
 
-                  <button
-                    onClick={endCall}
-                    className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg transition-colors"
-                  >
-                    End Call
-                  </button>
-                </div>
+                  {/* Controls */}
+                  <div className="flex gap-2">
+                    <button
+                      onClick={toggleMute}
+                      className={`flex-1 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 ${
+                        state.isMuted
+                          ? 'bg-red-500 hover:bg-red-600 text-white'
+                          : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+                      }`}
+                    >
+                      {state.isMuted ? (
+                        <>
+                          <MicOff className="w-4 h-4" /> Unmute
+                        </>
+                      ) : (
+                        <>
+                          <Mic className="w-4 h-4" /> Mute
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={endCall}
+                      className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg transition-colors"
+                    >
+                      End Call
+                    </button>
+                  </div>
+                </>
               )}
             </div>
 
             {/* Lead Collection Form (shown when call ends) */}
             {!state.isCallActive && state.callDuration > 0 && (
-              <div className="border-t border-gray-200 p-4 space-y-3 bg-gray-50">
+              <div className="border-t border-gray-200 p-4 space-y-3 bg-gray-50 max-h-[200px] overflow-y-auto">
                 <h4 className="font-semibold text-gray-800 text-sm">Get in Touch</h4>
                 <input
                   type="text"

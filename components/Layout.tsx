@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, BrainCircuit, Mail, MapPin, Phone, ArrowRight, Activity } from 'lucide-react';
+import AICallAgent from './AICallAgent';
 
 const Layout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,6 +29,9 @@ const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cort-500/30">
+      {/* AI Call Agent Widget */}
+      <AICallAgent />
+
       {/* Sticky Navigation */}
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
