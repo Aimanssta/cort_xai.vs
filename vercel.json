@@ -13,7 +13,7 @@
   ],
   "headers": [
     {
-      "source": "/dist/*",
+      "source": "/dist/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
