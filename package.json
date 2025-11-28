@@ -11,16 +11,17 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "lucide-react": "0.344.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "lucide-react": "0.344.0",
-    "react-router-dom": "6.22.3",
     "react-helmet-async": "2.0.4",
+    "react-router-dom": "6.22.3",
     "recharts": "2.12.3"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "terser": "^5.44.1",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
