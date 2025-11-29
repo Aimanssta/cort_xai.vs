@@ -74,7 +74,7 @@ const LocalAIDashboard: React.FC = () => {
   return (
     <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 mb-12">
       <h3 className="text-xl font-bold text-white mb-4">Local Business Audit & Report</h3>
-      <p className="text-slate-400 text-sm mb-6">Enter basic business details and run an audit. For full search-volume and ranking visibility you can later connect a SERP provider (SerpAPI) in the server.</p>
+      <p className="text-slate-400 text-sm mb-6">Enter your business details below to generate a comprehensive local SEO and AIO audit report. The analysis will evaluate your online presence, visibility, and provide actionable recommendations.</p>
 
       <div className="grid md:grid-cols-2 gap-4 mb-4">
         <input name="businessName" value={form.businessName} onChange={handleChange} placeholder="Business Name" className="px-3 py-2 rounded bg-slate-800 text-white" />
