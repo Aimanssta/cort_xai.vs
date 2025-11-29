@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, Star, TrendingUp, Search, Globe, Cpu, Mic, Sparkles, Zap, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
+import LocalAIDashboard from '../components/LocalAIDashboard';
 
 const LocalAIO: React.FC = () => {
   return (
@@ -106,6 +107,9 @@ const LocalAIO: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Local Audit Dashboard */}
+          <LocalAIDashboard />
 
           {/* Success Story */}
           <div className="bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-800">
