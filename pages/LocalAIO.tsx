@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import LocalAIDashboard from '../components/LocalAIDashboard';
 import HeroAIO from '../components/HeroAIO';
 import FeaturesAIO from '../components/FeaturesAIO';
-import ClientReviews from '../components/ClientReviews';
+import AIInsights from '../components/AIInsights';
 
 const LocalAIO: React.FC = () => {
   return (
@@ -94,8 +94,8 @@ const LocalAIO: React.FC = () => {
           {/* Local Audit Dashboard */}
           <LocalAIDashboard />
 
-           {/* Client reviews & logos (replace placeholders in data/clients.ts with real assets) */}
-           <ClientReviews />
+          {/* AI Insights & Local Search Trends */}
+          <AIInsights />
         </div>
       </div>
     </>
