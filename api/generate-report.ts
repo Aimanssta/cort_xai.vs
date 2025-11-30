@@ -24,51 +24,51 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const colors = { primary: '#10b981', dark: '#0f172a', light: '#f3f4f6', border: '#e5e7eb' };
 
-    // PAGE 1: COVER & SEARCH VOLUME OVERVIEW
-    drawRect(doc, 0, 0, 595, 160, colors.dark);
-    doc.fontSize(28).fillColor('#10b981').text('Local SEO & AIO Audit', 35, 35, { width: 525 });
-    doc.fontSize(16).fillColor('#ffffff').text(`${form.businessName || 'Business'}`, 35, 80);
-    doc.fontSize(10).fillColor('#d1d5db').text(`Report Generated: ${new Date().toLocaleDateString()} | Service Area: ${form.serviceArea || 'N/A'}`, 35, 105);
+    // Derive service label and primary volume to emphasize service-area-specific volume
+    const serviceLabel = (form.service && form.service.trim()) || (analysis.keywords && analysis.keywords[0]) || form.businessName || 'Your Service';
+    const serviceArea = form.serviceArea || 'Service Area';
+    const primaryVolume = analysis.primarySearchVolume || analysis.avgSearchVolume || 0;
 
-    doc.moveDown(7);
+    // PAGE 1: COVER + MARKET OVERVIEW + COMPACT METRICS
+    drawRect(doc, 0, 0, 595, 140, colors.dark);
+    doc.fontSize(26).fillColor(colors.primary).text('Local SEO & AIO Audit', 35, 30, { width: 525 });
+    doc.fontSize(14).fillColor('#ffffff').text(`${form.businessName || 'Business'}`, 35, 66);
+    doc.fontSize(9).fillColor('#d1d5db').text(`Report Generated: ${new Date().toLocaleDateString()} | Service Area: ${serviceArea}`, 35, 86);
 
-    // Business Overview Card
-    const boxY = doc.y;
-    doc.rect(35, boxY, 525, 80).fill('#f3f4f6').stroke('#e5e7eb');
-    doc.fontSize(10).fillColor(colors.dark).text('Business Information', 45, boxY + 10, { bold: true });
+    // Business overview compact card
+    const boxY = 120;
+    doc.rect(35, boxY, 525, 64).fill(colors.light).stroke(colors.border);
+    doc.fontSize(9).fillColor(colors.dark).text('Business Information', 45, boxY + 8);
     doc.fontSize(8).fillColor('#374151');
-    doc.text(`Website: ${form.website || '—'}`, 45, boxY + 28);
-    doc.text(`Service Area: ${form.serviceArea || '—'} | Keywords Tracked: ${analysis.keywordCount || 0}`, 45, boxY + 42);
-    doc.text(`Avg. Local Search Volume: ${analysis.avgSearchVolume?.toLocaleString() || '0'} | Visibility Gap: ${analysis.visibilityGap || '0'} searches`, 45, boxY + 56);
-    doc.moveDown(13);
+    doc.text(`Website: ${form.website || '—'}`, 45, boxY + 24);
+    doc.text(`Service Area: ${serviceArea} | Keywords Tracked: ${analysis.keywordCount || 0}`, 260, boxY + 24);
+    doc.text(`Visibility Gap: ${analysis.visibilityGap || '0'} searches`, 45, boxY + 40);
 
-    // SEARCH VOLUME & LOCAL INSIGHTS
-    doc.fontSize(12).fillColor(colors.dark).text('Local Search Market', 35, doc.y, { bold: true });
-    doc.moveDown(1);
+    // Prominent service-area search volume statement
+    doc.fontSize(11).fillColor(colors.dark).text(`Estimated monthly searches for ${serviceLabel} in ${serviceArea}: ${Number(primaryVolume).toLocaleString()}`, 35, boxY + 68);
 
-    const metricsY = doc.y;
+    // Compact metric tiles (4 across) under the overview
+    const metricsY = boxY + 92;
     const metrics = [
-      { label: 'Searches/Month', value: analysis.avgSearchVolume?.toLocaleString() || '0', color: '#3b82f6' },
+      { label: 'Searches/Month', value: Number(primaryVolume).toLocaleString(), color: '#3b82f6' },
       { label: 'Visibility Gap', value: analysis.visibilityGap || '0', color: '#ef4444' },
       { label: 'Keywords Tracked', value: analysis.keywordCount || '0', color: '#10b981' },
-      { label: 'Competition Level', value: analysis.avgSearchVolume > 500 ? 'High' : 'Medium', color: '#f59e0b' },
+      { label: 'Competition', value: (primaryVolume > 500 ? 'High' : 'Medium'), color: '#f59e0b' },
     ];
 
     metrics.forEach((m, i) => {
-      const x = 35 + i * 135;
-      doc.rect(x, metricsY, 120, 65).fill('#ffffff').stroke(colors.border);
-      doc.fontSize(7).fillColor('#6b7280').text(m.label, x + 8, metricsY + 8, { width: 104 });
-      doc.fontSize(16).fillColor(m.color).text(m.value.toString(), x + 8, metricsY + 24, { bold: true });
+      const x = 35 + i * 130;
+      doc.rect(x, metricsY, 120, 48).fill('#ffffff').stroke(colors.border);
+      doc.fontSize(7).fillColor('#6b7280').text(m.label, x + 8, metricsY + 6, { width: 104 });
+      doc.fontSize(14).fillColor(m.color).text(m.value.toString(), x + 8, metricsY + 22);
     });
 
-    doc.moveDown(11);
-
-    // PAGE 2: FIVE CORE METRICS ANALYSIS
+    // Add a short separator and start Page 2
     doc.addPage();
-    doc.fontSize(14).fillColor(colors.dark).text('Performance Analysis: 5 Core Metrics', 35, 40, { bold: true });
-    doc.moveDown(2);
+    doc.fontSize(14).fillColor(colors.dark).text('Performance Analysis: 5 Core Metrics', 35, 30);
+    doc.moveDown(0.5);
 
-    // Score cards for all 5 metrics
+    // Score cards for 5 core metrics in a compact 2-column grid
     const metrics5 = [
       { title: 'On-Page SEO', score: analysis.onPageScore, color: '#10b981', icon: '📄' },
       { title: 'Links Profile', score: analysis.linksScore, color: '#3b82f6', icon: '🔗' },
@@ -77,30 +77,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       { title: 'Social Signals', score: analysis.socialScore, color: '#ec4899', icon: '📢' },
     ];
 
-    let cardY = doc.y + 5;
+    let shortY = doc.y + 6;
     metrics5.forEach((m, i) => {
-      if (i > 0 && i % 2 === 0) cardY += 75;
-      const x = i % 2 === 0 ? 35 : 310;
-
-      // Draw score card
-      doc.rect(x, cardY, 240, 65).fill('#ffffff').stroke(colors.border);
-      doc.fontSize(11).fillColor(m.color).text(`${m.icon} ${m.title}`, x + 12, cardY + 10, { bold: true });
-      doc.fontSize(24).fillColor(m.color).text(m.score.toString(), x + 170, cardY + 12);
-      doc.fontSize(8).fillColor('#6b7280').text('/100', x + 210, cardY + 18);
-
-      // Score bar
-      const barWidth = (m.score / 100) * 200;
-      doc.rect(x + 12, cardY + 45, 200, 6).fill('#e5e7eb');
-      doc.rect(x + 12, cardY + 45, barWidth, 6).fill(m.color);
+      const col = i % 2; const row = Math.floor(i / 2);
+      const x = col === 0 ? 35 : 300;
+      const y = shortY + row * 62;
+      doc.rect(x, y, 240, 52).fill('#ffffff').stroke(colors.border);
+      doc.fontSize(10).fillColor(m.color).text(`${m.icon} ${m.title}`, x + 10, y + 6);
+      doc.fontSize(18).fillColor(m.color).text((m.score || 0).toString(), x + 180, y + 6);
+      const barW = ((m.score || 0) / 100) * 160;
+      doc.rect(x + 10, y + 34, 160, 6).fill('#e5e7eb');
+      doc.rect(x + 10, y + 34, barW, 6).fill(m.color);
     });
 
-    doc.moveDown(20);
-
-    // PAGE 3: DETAILED METRIC ANALYSIS
-    doc.addPage();
-    doc.fontSize(14).fillColor(colors.dark).text('Detailed Metric Analysis & Recommendations', 35, 40, { bold: true });
-    doc.moveDown(2);
-
+    // Condensed detailed metrics + recommendations below the score cards in two columns
     const detailedMetrics = [
       {
         title: '1. ON-PAGE SEO OPTIMIZATION',
@@ -186,170 +176,72 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
     ];
 
-    let detailY = doc.y + 10;
-    detailedMetrics.forEach((metric, idx) => {
-      if (detailY > 680) {
-        doc.addPage();
-        detailY = 40;
-      }
+    // Condensed detailed metrics: show top 2 detail lines and top 2 recommendations per metric
+    let detailStartY = doc.y + 8;
+    const condensed = detailedMetrics.map((m) => ({
+      title: m.title,
+      score: m.score,
+      details: (m.details || []).slice(0, 2),
+      recommendations: (m.recommendations || []).slice(0, 2),
+    }));
 
-      // Metric header with score
-      doc.rect(35, detailY, 525, 30).fill('#f0fdf4').stroke(colors.border);
-      doc.fontSize(10).fillColor(colors.primary).text(metric.title, 45, detailY + 7, { bold: true });
-      doc.fontSize(12).fillColor(colors.primary).text(`${metric.score}/100`, 520, detailY + 7, { align: 'right' });
+    // Two-column layout for condensed metrics
+    let colY = detailStartY;
+    condensed.forEach((metric, i) => {
+      const col = i % 2 === 0 ? 0 : 1;
+      const row = Math.floor(i / 2);
+      const x = col === 0 ? 35 : 300;
+      const y = detailStartY + row * 86;
 
-      detailY += 40;
+      doc.rect(x, y, 240, 78).fill('#ffffff').stroke(colors.border);
+      doc.fontSize(9).fillColor(colors.primary).text(metric.title, x + 8, y + 6);
+      doc.fontSize(12).fillColor(colors.primary).text(`${metric.score}/100`, x + 190, y + 6);
 
-      // Details and recommendations
       doc.fontSize(8).fillColor('#374151');
-      metric.details.forEach((detail) => {
-        doc.text(`• ${detail}`, 45, detailY, { width: 505 });
-        detailY += 15;
+      metric.details.forEach((d, idx) => {
+        doc.text(`• ${d}`, x + 8, y + 24 + idx * 10, { width: 220 });
       });
 
-      detailY += 5;
-      doc.fontSize(8).fillColor(colors.primary).text('Recommendations:', 45, detailY, { bold: true });
-      detailY += 12;
-
-      metric.recommendations.forEach((rec) => {
-        doc.fontSize(7).fillColor('#374151').text(`◆ ${rec}`, 50, detailY, { width: 500 });
-        detailY += 14;
+      doc.fontSize(8).fillColor('#0b84a5').text('Top Recommendations:', x + 8, y + 44);
+      metric.recommendations.forEach((r, idx) => {
+        doc.fontSize(7).fillColor('#374151').text(`- ${r}`, x + 12, y + 56 + idx * 10, { width: 216 });
       });
-
-      detailY += 10;
     });
 
-    // PAGE 4: GMB STRATEGY
-    doc.addPage();
-    doc.fontSize(14).fillColor(colors.dark).text('Google Business Profile (GMB) Strategy', 35, 40, { bold: true });
-    doc.moveDown(2);
+    // Combined GMB + Action Plan condensed box at the bottom of page 2
+    const bottomY = detailStartY + Math.ceil(condensed.length / 2) * 86 + 8;
+    const boxHeight = 560 - bottomY > 140 ? 140 : (560 - bottomY);
+    doc.rect(35, bottomY, 525, boxHeight).fill('#f8fafc').stroke(colors.border);
+    doc.fontSize(11).fillColor(colors.dark).text('GMB Strategy & 30-60-90 Action Plan (Condensed)', 45, bottomY + 8);
+    doc.fontSize(8).fillColor('#374151');
 
-    const gmbSections = [
-      {
-        title: 'Profile Optimization (High Priority)',
-        items: [
-          'Claim and verify ownership of your Google Business Profile',
-          'Complete all profile fields: business name, address, phone, hours, categories',
-          'Ensure NAP (Name, Address, Phone) matches your website exactly',
-          'Upload 10+ high-quality business photos (storefront, team, work samples)',
-          'Add service areas and service list with descriptions and pricing if applicable',
-        ],
-      },
-      {
-        title: 'Engagement & Reviews (High Priority)',
-        items: [
-          'Target goal: 4.5+ star average rating across all platforms',
-          'Ask satisfied customers for Google reviews via email, SMS, QR codes',
-          'Respond to ALL reviews within 24-48 hours (positive and negative)',
-          'Address customer concerns professionally and offer solutions in responses',
-          'Monitor review trends and adjust service/communication accordingly',
-        ],
-      },
-      {
-        title: 'Content & Posts (High Priority)',
-        items: [
-          'Post 2-4 times per month: new services, promotions, events, blog updates',
-          'Use local keywords and service-specific language in post descriptions',
-          'Add photos/videos to posts for higher engagement and visibility',
-          'Include clear CTAs (call, book, learn more, shop) in each post',
-          'Monitor post analytics to see which content drives calls/visits',
-        ],
-      },
-      {
-        title: 'Q&A & Messaging (High Priority)',
-        items: [
-          'Monitor and answer customer Q&A section promptly',
-          'Enable Google messaging/booking features for direct customer communication',
-          'Reply to messages within a few hours to show active presence',
-          'Use messaging as an opportunity to qualify leads and convert',
-          'Keep FAQs updated based on common customer questions',
-        ],
-      },
+    // Top 3 GMB bullets
+    const gmbBullets = [
+      'Claim & verify your Google Business Profile; complete NAP and categories',
+      'Collect 4-5+ reviews monthly; respond to all reviews within 48 hours',
+      'Post 2x/month with local offers and service updates (use photos & CTAs)',
     ];
 
-    let gmbY = doc.y + 10;
-    gmbSections.forEach((section, idx) => {
-      if (gmbY > 700) {
-        doc.addPage();
-        gmbY = 40;
-      }
-
-      doc.rect(35, gmbY, 525, 28).fill('#fef08a').stroke(colors.border);
-      doc.fontSize(10).fillColor('#92400e').text(`⭐ ${section.title}`, 45, gmbY + 7, { bold: true });
-      gmbY += 35;
-
-      section.items.forEach((item) => {
-        doc.fontSize(8).fillColor('#374151').text(`✓ ${item}`, 50, gmbY, { width: 490 });
-        gmbY += 18;
-      });
-
-      gmbY += 8;
+    gmbBullets.forEach((b, i) => {
+      doc.text(`✓ ${b}`, 45, bottomY + 30 + i * 12, { width: 500 });
     });
 
-    // PAGE 5: ACTION PLAN & NEXT STEPS
-    doc.addPage();
-    doc.fontSize(14).fillColor(colors.dark).text('30-60-90 Day Action Plan', 35, 40, { bold: true });
-    doc.moveDown(2);
-
-    const actionPlan = [
-      {
-        phase: 'WEEK 1-2: Foundation',
-        items: [
-          'Claim and complete GMB profile (all required fields)',
-          'Conduct keyword research for 10-20 target service area keywords',
-          'Audit website structure and improve internal linking',
-          'Add Open Graph and structured data markup',
-        ],
-      },
-      {
-        phase: 'WEEK 3-4: Optimization',
-        items: [
-          'Optimize title tags and meta descriptions for primary keywords',
-          'Publish 3-5 local service pages or blog posts',
-          'Begin citation building on relevant directories',
-          'Set up review request campaigns (email, SMS, Google)',
-        ],
-      },
-      {
-        phase: 'MONTH 2: Authority Building',
-        items: [
-          'Start link acquisition from local and industry sites',
-          'Post 2x/week on GMB with local keywords and CTAs',
-          'Respond to all reviews and Q&A promptly',
-          'Implement performance optimizations (speed, mobile, Core Web Vitals)',
-        ],
-      },
-      {
-        phase: 'MONTH 3: Scale & Measure',
-        items: [
-          'Analyze results: search rankings, GMB views, call/message volume',
-          'Double down on high-performing content and keywords',
-          'Expand content library with new service and location pages',
-          'Plan for ongoing optimization and competitive monitoring',
-        ],
-      },
+    // Condensed 30-60-90
+    const planStart = bottomY + 30 + gmbBullets.length * 12 + 6;
+    const condensedPlan = [
+      { phase: 'WEEK 1-2', items: ['Complete GMB & basic schema', 'Keyword list + site fixes'] },
+      { phase: 'WEEK 3-4', items: ['On‑page tweaks + 3 local posts', 'Begin citations & review requests'] },
+      { phase: 'MONTH 2-3', items: ['Link building & monthly tracking', 'Scale content and measure results'] },
     ];
 
-    let planY = doc.y + 10;
-    actionPlan.forEach((plan) => {
-      if (planY > 700) {
-        doc.addPage();
-        planY = 40;
-      }
-
-      doc.rect(35, planY, 525, 26).fill('#e0f2fe').stroke(colors.border);
-      doc.fontSize(9).fillColor('#0c4a6e').text(plan.phase, 45, planY + 6, { bold: true });
-      planY += 32;
-
-      plan.items.forEach((item) => {
-        doc.fontSize(8).fillColor('#374151').text(`→ ${item}`, 50, planY, { width: 490 });
-        planY += 15;
-      });
-
-      planY += 8;
+    let pY = planStart;
+    condensedPlan.forEach((p) => {
+      doc.fontSize(8).fillColor('#0c4a6e').text(p.phase, 45, pY);
+      doc.fontSize(7).fillColor('#374151').text(p.items.join(' • '), 95, pY, { width: 460 });
+      pY += 14;
     });
 
-    doc.fontSize(9).fillColor('#6b7280').text('For ongoing optimization and competitive analysis, consider monthly tracking of rankings, review sentiment, and search visibility.', 35, doc.y + 15, { align: 'center', width: 525 });
+    doc.fontSize(9).fillColor('#6b7280').text('For ongoing optimization, monitor rankings, GMB views and review sentiment monthly.', 35, bottomY + boxHeight - 18, { align: 'center', width: 525 });
 
     doc.end();
   } catch (err) {

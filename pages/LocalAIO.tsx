@@ -3,6 +3,9 @@ import { MapPin, Star, TrendingUp, Search, Globe, Cpu, Mic, Sparkles, Zap, Check
 import Button from '../components/Button';
 import SEO from '../components/SEO';
 import LocalAIDashboard from '../components/LocalAIDashboard';
+import HeroAIO from '../components/HeroAIO';
+import FeaturesAIO from '../components/FeaturesAIO';
+import ClientReviews from '../components/ClientReviews';
 
 const LocalAIO: React.FC = () => {
   return (
@@ -11,6 +14,8 @@ const LocalAIO: React.FC = () => {
         title="AI Powered Local AIO Services USA"
         description="Dominate local search & AI answers. AI-optimized Business Profiles, automated review management, and local AIO signals for US markets."
       />
+
+      <HeroAIO />
 
       <div className="bg-slate-950 pt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -53,30 +58,8 @@ const LocalAIO: React.FC = () => {
             </div>
           </div>
 
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-8 mb-24">
-            <div className="glass-card p-8 rounded-2xl group hover:border-emerald-500/50 transition-colors">
-              <Globe className="h-10 w-10 text-emerald-400 mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-white mb-3">AI Profile Optimization</h3>
-              <p className="text-slate-400 text-sm">
-                Our AI continuously updates your Business Profiles with semantic keywords, posts, and photos to signal relevance to both Google and AI algorithms.
-              </p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl group hover:border-emerald-500/50 transition-colors">
-              <Star className="h-10 w-10 text-yellow-400 mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-white mb-3">Review Intelligence</h3>
-              <p className="text-slate-400 text-sm">
-                Automatically request reviews via SMS. Our AI drafts context-aware responses to boost your sentiment analysis score in AI search models.
-              </p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl group hover:border-emerald-500/50 transition-colors">
-              <Cpu className="h-10 w-10 text-red-400 mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold text-white mb-3">Hyper-Local AIO Signals</h3>
-              <p className="text-slate-400 text-sm">
-                We build thousands of consistent data points across the web to establish your brand as the authoritative entity in your region.
-              </p>
-            </div>
-          </div>
+          {/* Features (replaced by FeaturesAIO) */}
+          <FeaturesAIO />
           
           {/* The Future of Search - Educational SEO Section */}
           <div className="mb-24">
@@ -111,65 +94,8 @@ const LocalAIO: React.FC = () => {
           {/* Local Audit Dashboard */}
           <LocalAIDashboard />
 
-          {/* Success Story */}
-          <div className="bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-800">
-             <div className="flex flex-col md:flex-row gap-12 items-center">
-                <div className="flex-1">
-                   <h3 className="text-2xl font-bold text-white mb-4">Case Study: HVAC Service, Chicago</h3>
-                   <p className="text-slate-400 mb-6">
-                      Before Cort X AI, they ranked on page 2 for "AC Repair Chicago". Within 60 days of our automated local AIO implementation:
-                   </p>
-                   <ul className="space-y-4">
-                      <li className="flex items-center gap-4">
-                         <div className="bg-emerald-900/50 p-2 rounded text-emerald-400 font-bold">+210%</div>
-                         <span className="text-slate-200">Increase in organic calls</span>
-                      </li>
-                      <li className="flex items-center gap-4">
-                         <div className="bg-emerald-900/50 p-2 rounded text-emerald-400 font-bold">#1 Spot</div>
-                         <span className="text-slate-200">For 15 high-value keywords</span>
-                      </li>
-                      <li className="flex items-center gap-4">
-                         <div className="bg-emerald-900/50 p-2 rounded text-emerald-400 font-bold">4.9 Star</div>
-                         <span className="text-slate-200">Average rating (up from 4.2)</span>
-                      </li>
-                   </ul>
-                </div>
-                <div className="flex-1 w-full">
-                   <div className="bg-white rounded-lg p-4 shadow-inner">
-                      {/* Mock Search Result */}
-                      <div className="border-b border-gray-200 pb-4 mb-4">
-                         <div className="flex items-center gap-2 mb-1">
-                            <Search className="h-4 w-4 text-gray-400" />
-                            <div className="h-4 bg-gray-200 rounded w-48"></div>
-                         </div>
-                      </div>
-                      <div className="space-y-4">
-                         {/* Map Pack Result 1 - Highlighted */}
-                         <div className="bg-emerald-50 border border-emerald-200 p-3 rounded flex justify-between items-start">
-                            <div>
-                               <div className="h-4 bg-slate-800 rounded w-32 mb-2"></div>
-                               <div className="flex gap-1 mb-2">
-                                  <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" />
-                                  <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" />
-                                  <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" />
-                                  <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" />
-                                  <Star className="h-3 w-3 text-yellow-500 fill-yellow-500" />
-                               </div>
-                               <div className="h-3 bg-gray-300 rounded w-24"></div>
-                            </div>
-                            <div className="bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded">WEBSITE</div>
-                         </div>
-                         <div className="p-3 rounded flex justify-between items-start opacity-50">
-                            <div>
-                               <div className="h-4 bg-gray-300 rounded w-24 mb-2"></div>
-                               <div className="h-3 bg-gray-200 rounded w-20"></div>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
+           {/* Client reviews & logos (replace placeholders in data/clients.ts with real assets) */}
+           <ClientReviews />
         </div>
       </div>
     </>

@@ -69,6 +69,26 @@ const AICallAgent: React.FC = () => {
     };
   }, []);
 
+  // Listen for global events to open/start the demo call (from hero CTA)
+  useEffect(() => {
+    const handler = (e: Event) => {
+      try {
+        const ce = e as CustomEvent;
+        const startImmediately = ce?.detail?.start === true;
+        setState(prev => ({ ...prev, isOpen: true }));
+        if (startImmediately) {
+          // small timeout to allow modal to render
+          setTimeout(() => startCall(), 300);
+        }
+      } catch (err) {
+        console.error('openAICall handler error', err);
+      }
+    };
+
+    window.addEventListener('openAICall', handler as EventListener);
+    return () => window.removeEventListener('openAICall', handler as EventListener);
+  }, []);
+
   const startCall = async () => {
     try {
       setState(prev => ({ ...prev, isCallStarting: true }));
@@ -90,8 +110,10 @@ const AICallAgent: React.FC = () => {
       const accessToken = data.access_token;
 
       if (!accessToken) {
-        alert('Failed to get access token for call');
+        // If no access token, fallback to a local demo playback
+        console.warn('No access token received — falling back to local demo');
         setState(prev => ({ ...prev, isCallStarting: false }));
+        startDemoPlayback();
         return;
       }
 
@@ -117,9 +139,80 @@ const AICallAgent: React.FC = () => {
       }, 1000);
     } catch (error) {
       console.error('Failed to start call:', error);
-      alert('Failed to start call. Please check your configuration and try again.');
+      // Fallback to demo playback so visitor can hear an example without Retell
+      console.warn('Starting demo playback due to call start failure');
       setState(prev => ({ ...prev, isCallStarting: false }));
+      startDemoPlayback();
     }
+  };
+
+  // Demo playback using browser SpeechSynthesis + simulated transcript
+  const startDemoPlayback = () => {
+    try {
+      const demoLines = [
+        "Hi, thanks for calling. This is the Cort X AI agent. How can I help you today?",
+        "We offer local SEO and AI-powered lead capture. Can I get your name and phone number to schedule a free audit?",
+        "Great — I will pass this to the team and they will reach out within one business day. Thank you!",
+      ];
+
+      // Open modal and mark call active
+      setState(prev => ({ ...prev, isOpen: true, isCallActive: true, callDuration: 0 }));
+      // start timer
+      callTimerRef.current = setInterval(() => {
+        setState(prev => ({ ...prev, callDuration: prev.callDuration + 1 }));
+      }, 1000);
+
+      // Use SpeechSynthesis to speak demo lines sequentially
+      if ('speechSynthesis' in window) {
+        const synth = window.speechSynthesis;
+        let index = 0;
+
+        const speakNext = () => {
+          if (index >= demoLines.length) {
+            // End demo
+            endDemo();
+            return;
+          }
+          const text = demoLines[index];
+          // append to transcript progressively
+          setState(prev => ({ ...prev, transcript: (prev.transcript + '\n' + text).trim() }));
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.rate = 1;
+          utter.onend = () => {
+            index += 1;
+            setTimeout(speakNext, 600);
+          };
+          synth.speak(utter);
+        };
+
+        // Start speaking
+        setTimeout(speakNext, 250);
+      } else {
+        // If SpeechSynthesis not available, simulate transcript timing
+        demoLines.forEach((line, i) => {
+          setTimeout(() => {
+            setState(prev => ({ ...prev, transcript: (prev.transcript + '\n' + line).trim() }));
+            if (i === demoLines.length - 1) endDemo();
+          }, 1200 * (i + 1));
+        });
+      }
+    } catch (err) {
+      console.error('Demo playback failed:', err);
+      endDemo();
+    }
+  };
+
+  const endDemo = () => {
+    try {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    } catch (e) {
+      console.warn('speechSynthesis cancel failed', e);
+    }
+    if (callTimerRef.current) {
+      clearInterval(callTimerRef.current);
+      callTimerRef.current = null;
+    }
+    setState(prev => ({ ...prev, isCallActive: false, isCallStarting: false, callDuration: 0 }));
   };
 
   const endCall = () => {
