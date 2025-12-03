@@ -7,6 +7,7 @@ import LeadGen from './pages/LeadGen';
 import LocalAIO from './pages/LocalAIO';
 import Contact from './pages/Contact';
 import Dashboard from './pages/Dashboard';
+import PlansChatBot from './components/PlanschatBot';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -31,6 +32,7 @@ const App: React.FC = () => {
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
+      <PlansChatBot />
     </HashRouter>
   );
 };
