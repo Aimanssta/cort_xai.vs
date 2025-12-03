@@ -2,14 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
-  "framework": "vite",
-  "env": [
-    "VITE_GOOGLE_CLIENT_ID",
-    "VITE_GOOGLE_CLIENT_SECRET",
-    "VITE_API_KEY",
-    "VITE_FACEBOOK_APP_ID",
-    "VITE_INSTAGRAM_APP_ID",
-    "VITE_LINKEDIN_CLIENT_ID",
-    "VITE_TWITTER_API_KEY"
-  ]
+  "framework": "vite"
 }
