@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GBPStats } from '../types';
+import { googleBusinessProfileAPI } from '../services/googleBusinessProfileRealtime';
+import { realtimeSyncDashboard, type DashboardData } from '../services/realtimeSyncDashboard';
 import {
   Eye,
   Phone,
@@ -11,6 +13,7 @@ import {
   BarChart3,
   MessageCircle,
   Star,
+  AlertCircle,
 } from 'lucide-react';
 import {
   LineChart,
@@ -30,6 +33,8 @@ interface GBPDashboardProps {
   loading?: boolean;
   lastSyncTime?: string;
   onRefresh?: () => void;
+  gbpAccessToken?: string;
+  gbpLocationId?: string;
 }
 
 const StatCard: React.FC<{
@@ -62,33 +67,161 @@ const StatCard: React.FC<{
 );
 
 const GBPDashboard: React.FC<GBPDashboardProps> = ({
-  stats = {
-    viewsLastMonth: 2457,
-    callsLastMonth: 342,
-    directionsLastMonth: 1203,
-    websiteVisitsLastMonth: 856,
-    messagesSent: 45,
-    reviewsTotal: 124,
-    averageRating: 4.7,
-    dayTrendData: Array.from({ length: 30 }, (_, i) => ({
-      date: new Date(Date.now() - (30 - i) * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-      views: Math.floor(Math.random() * 100) + 50,
-      calls: Math.floor(Math.random() * 30) + 5,
-      directions: Math.floor(Math.random() * 50) + 20,
-    })),
+  stats: initialStats = {
+    viewsLastMonth: 0,
+    callsLastMonth: 0,
+    directionsLastMonth: 0,
+    websiteVisitsLastMonth: 0,
+    messagesSent: 0,
+    reviewsTotal: 0,
+    averageRating: 0,
+    dayTrendData: [],
   },
-  loading = false,
-  lastSyncTime,
-  onRefresh,
+  loading: initialLoading = false,
+  lastSyncTime: initialLastSyncTime,
+  onRefresh: onRefreshProp,
+  gbpAccessToken,
+  gbpLocationId,
 }) => {
   const [refreshing, setRefreshing] = useState(false);
+  const [stats, setStats] = useState<GBPStats>(initialStats);
+  const [loading, setLoading] = useState(initialLoading);
+  const [lastSyncTime, setLastSyncTime] = useState<string | undefined>(
+    initialLastSyncTime
+  );
+  const [error, setError] = useState<string | null>(null);
+
+  // Initialize and fetch real data
+  useEffect(() => {
+    const initializeAndFetch = async () => {
+      if (!gbpAccessToken || !gbpLocationId) {
+        console.warn('GBP credentials not provided, using mock data');
+        return;
+      }
+
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Initialize the real-time dashboard
+        await realtimeSyncDashboard.initialize({
+          gbpAccessToken,
+          gbpLocationId,
+        });
+
+        // Fetch real data
+        const data = await realtimeSyncDashboard.fetchAllData();
+
+        if (data.gbpData) {
+          // Parse insights data
+          const insights = data.gbpData.insights || {};
+          const dayTrendData = Array.isArray(insights.dayTrendData)
+            ? insights.dayTrendData
+            : Array.from({ length: 30 }, (_, i) => ({
+                date: new Date(
+                  Date.now() - (30 - i) * 24 * 60 * 60 * 1000
+                ).toLocaleDateString('en-US', {
+                  month: 'short',
+                  day: 'numeric',
+                }),
+                views: insights.viewsLastMonth ? Math.floor(insights.viewsLastMonth / 30) : 0,
+                calls: insights.callsLastMonth ? Math.floor(insights.callsLastMonth / 30) : 0,
+                directions: insights.directionsLastMonth
+                  ? Math.floor(insights.directionsLastMonth / 30)
+                  : 0,
+              }));
+
+          setStats({
+            viewsLastMonth: insights.viewsLastMonth || 0,
+            callsLastMonth: insights.callsLastMonth || 0,
+            directionsLastMonth: insights.directionsLastMonth || 0,
+            websiteVisitsLastMonth: insights.websiteVisitsLastMonth || 0,
+            messagesSent: insights.messagesSent || 0,
+            reviewsTotal: data.gbpData.reviews?.length || 0,
+            averageRating: insights.averageRating || 0,
+            dayTrendData,
+          });
+
+          setLastSyncTime(data.gbpData.lastUpdated);
+        }
+      } catch (err) {
+        console.error('Error initializing GBP Dashboard:', err);
+        setError(
+          'Failed to fetch Google Business Profile data. Using mock data for preview.'
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initializeAndFetch();
+
+    // Set up auto-sync
+    const handleRealtimeUpdate = (event: Event) => {
+      const customEvent = event as CustomEvent<DashboardData>;
+      const data = customEvent.detail;
+
+      if (data.gbpData) {
+        const insights = data.gbpData.insights || {};
+        setStats((prevStats) => ({
+          ...prevStats,
+          viewsLastMonth: insights.viewsLastMonth || prevStats.viewsLastMonth,
+          callsLastMonth: insights.callsLastMonth || prevStats.callsLastMonth,
+          directionsLastMonth:
+            insights.directionsLastMonth || prevStats.directionsLastMonth,
+          websiteVisitsLastMonth:
+            insights.websiteVisitsLastMonth || prevStats.websiteVisitsLastMonth,
+        }));
+        setLastSyncTime(data.gbpData.lastUpdated);
+      }
+    };
+
+    window.addEventListener('realtimeDataUpdate', handleRealtimeUpdate);
+    return () => {
+      window.removeEventListener('realtimeDataUpdate', handleRealtimeUpdate);
+      realtimeSyncDashboard.stopAutoSync();
+    };
+  }, [gbpAccessToken, gbpLocationId]);
+
+  // Start auto-sync every 5 minutes
+  useEffect(() => {
+    if (gbpAccessToken && gbpLocationId) {
+      realtimeSyncDashboard.startAutoSync(300);
+    }
+  }, [gbpAccessToken, gbpLocationId]);
 
   const handleRefresh = async () => {
-    setRefreshing(true);
-    if (onRefresh) {
-      await onRefresh();
+    try {
+      setRefreshing(true);
+      setError(null);
+
+      if (gbpAccessToken && gbpLocationId) {
+        const data = await realtimeSyncDashboard.fetchAllData();
+
+        if (data.gbpData) {
+          const insights = data.gbpData.insights || {};
+          setStats((prevStats) => ({
+            ...prevStats,
+            viewsLastMonth: insights.viewsLastMonth || prevStats.viewsLastMonth,
+            callsLastMonth: insights.callsLastMonth || prevStats.callsLastMonth,
+            directionsLastMonth:
+              insights.directionsLastMonth || prevStats.directionsLastMonth,
+            websiteVisitsLastMonth:
+              insights.websiteVisitsLastMonth || prevStats.websiteVisitsLastMonth,
+          }));
+          setLastSyncTime(data.gbpData.lastUpdated);
+        }
+      }
+
+      if (onRefreshProp) {
+        await onRefreshProp();
+      }
+    } catch (err) {
+      console.error('Error refreshing data:', err);
+      setError('Failed to refresh data. Please try again.');
+    } finally {
+      setRefreshing(false);
     }
-    setRefreshing(false);
   };
 
   const changes = {
@@ -100,6 +233,17 @@ const GBPDashboard: React.FC<GBPDashboardProps> = ({
 
   return (
     <div className="space-y-8">
+      {/* Error Alert */}
+      {error && (
+        <div className="bg-red-600/10 border border-red-500/30 rounded-lg p-4 flex items-start gap-3">
+          <AlertCircle className="text-red-400 flex-shrink-0 mt-0.5" size={20} />
+          <div>
+            <p className="text-red-400 font-semibold">Data Fetch Warning</p>
+            <p className="text-red-300 text-sm mt-1">{error}</p>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
