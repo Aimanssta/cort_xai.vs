@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-const Logo: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 48 }) => {
+const Logo: React.FC<{ className?: string; size?: number }> = ({ className = '', size }) => {
   const [imgError, setImgError] = useState(false);
   const imgSrc = '/cortx-logo-bluish.png';
+
+  // If a className is provided, prefer that for responsive sizing; otherwise fall back to pixel `size`.
+  const imgClass = className || 'w-12 h-12';
 
   return (
     <div className={`flex items-center ${className}`}>
@@ -10,15 +13,14 @@ const Logo: React.FC<{ className?: string; size?: number }> = ({ className = '',
         <img
           src={imgSrc}
           alt="Cort X"
-          width={size}
-          height={size}
-          className="rounded-md object-contain"
+          className={`rounded-md object-contain ${imgClass}`}
+          style={size && !className ? { width: size, height: size } : undefined}
           onError={() => setImgError(true)}
         />
       )}
 
       {imgError && (
-        <svg width={size} height={size} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <svg width={size || 48} height={size || 48} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
           <defs>
             <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#2b6ef6" />

@@ -44,7 +44,7 @@ const Layout: React.FC = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
                 <Link to="/" className="flex items-center gap-2 group relative z-50" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Logo size={56} />
+                  <Logo className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
                 </Link>
 
             {/* Desktop Menu */}
@@ -116,7 +116,7 @@ const Layout: React.FC = () => {
       </nav>
 
       {/* Main Content with consistent top backdrop */}
-      <main className="flex-grow pt-24 relative">
+      <main className="flex-grow pt-20 md:pt-24 relative">
         <PageTopBackdrop />
         <div className="relative z-10">
           <Outlet />
@@ -129,7 +129,7 @@ const Layout: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-1">
                   <Link to="/" className="flex items-center gap-2 mb-4">
-                    <Logo size={36} />
+                    <Logo className="w-8 h-8 sm:w-10 sm:h-10" />
                   </Link>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 Revolutionizing USA businesses with autonomous sales agents, intelligent lead generation, and local AIO dominance.
