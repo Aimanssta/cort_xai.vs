@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Star, TrendingUp, Search, Globe, Cpu, Mic, Sparkles, Zap, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
-import LocalAIDashboard from '../components/LocalAIDashboard';
+// LocalAIDashboard removed per request (audit form removed from website)
 import HeroAIO from '../components/HeroAIO';
 import FeaturesAIO from '../components/FeaturesAIO';
 import AIInsights from '../components/AIInsights';
@@ -91,8 +91,7 @@ const LocalAIO: React.FC = () => {
             </div>
           </div>
 
-          {/* Local Audit Dashboard */}
-          <LocalAIDashboard />
+          {/* Local Audit Dashboard removed per request */}
 
           {/* AI Insights & Local Search Trends */}
           <AIInsights />
