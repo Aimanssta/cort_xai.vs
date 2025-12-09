@@ -39,37 +39,7 @@ const LocalAIDashboard: React.FC = () => {
     }
   };
 
-  const generatePdf = async () => {
-    if (!analysis) {
-      alert('Run analysis first');
-      return;
-    }
-    setLoading(true);
-    try {
-      const resp = await fetch('/api/generate-report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ form, analysis }),
-      });
-
-      if (!resp.ok) throw new Error('Failed to generate PDF');
-
-      const blob = await resp.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${form.businessName || 'local-aio-report'}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error(err);
-      alert('Failed to generate PDF');
-    } finally {
-      setLoading(false);
-    }
-  };
+  // PDF generation removed from UI per request. Server endpoint `/api/generate-report` remains available if needed.
 
   return (
     <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 mb-12">
@@ -88,7 +58,6 @@ const LocalAIDashboard: React.FC = () => {
 
       <div className="flex gap-3">
         <button onClick={runAnalysis} disabled={loading} className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded">{loading ? 'Working...' : 'Run Analysis'}</button>
-        <button onClick={generatePdf} disabled={loading || !analysis} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Generate PDF Report</button>
       </div>
 
       {analysis && (

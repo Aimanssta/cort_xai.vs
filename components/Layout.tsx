@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Menu, X, BrainCircuit, Mail, MapPin, Phone, ArrowRight, Activity } from 'lucide-react';
+import { Menu, X, Mail, MapPin, Phone, ArrowRight, Activity } from 'lucide-react';
 import AICallAgent from './AICallAgent';
+import Logo from './Logo';
 
 const Layout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,14 +42,9 @@ const Layout: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group relative z-50" onClick={() => setIsMobileMenuOpen(false)}>
-              <div className="bg-gradient-to-br from-cort-600 to-indigo-400 p-2 rounded-lg shadow-lg shadow-cort-500/20 group-hover:shadow-cort-500/40 transition-all">
-                <BrainCircuit className="h-6 w-6 text-white" />
-              </div>
-              <span className="font-bold text-xl tracking-tight text-white">
-                Cort <span className="text-cort-500">X</span> AI
-              </span>
-            </Link>
+                <Link to="/" className="flex items-center gap-2 group relative z-50" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Logo />
+                </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
@@ -69,12 +65,9 @@ const Layout: React.FC = () => {
                   )}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                className="bg-cort-600 hover:bg-cort-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-cort-600/20 flex items-center gap-2"
-              >
-                Book Demo <ArrowRight className="h-4 w-4" />
-              </Link>
+                  <Link to="/contact" className="bg-cort-600 hover:bg-cort-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-cort-600/20 flex items-center gap-2">
+                    Book Demo <ArrowRight className="h-4 w-4" />
+                  </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -131,10 +124,9 @@ const Layout: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-1">
-              <Link to="/" className="flex items-center gap-2 mb-4">
-                <BrainCircuit className="h-6 w-6 text-cort-500" />
-                <span className="font-bold text-xl text-white">Cort X AI</span>
-              </Link>
+                  <Link to="/" className="flex items-center gap-2 mb-4">
+                    <Logo compact />
+                  </Link>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 Revolutionizing USA businesses with autonomous sales agents, intelligent lead generation, and local AIO dominance.
               </p>
