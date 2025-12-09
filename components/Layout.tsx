@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Mail, MapPin, Phone, ArrowRight, Activity } from 'lucide-react';
 import AICallAgent from './AICallAgent';
 import Logo from './Logo';
+import PageTopBackdrop from './PageTopBackdrop';
 
 const Layout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -114,9 +115,12 @@ const Layout: React.FC = () => {
         )}
       </nav>
 
-      {/* Main Content */}
-      <main className="flex-grow pt-24">
-        <Outlet />
+      {/* Main Content with consistent top backdrop */}
+      <main className="flex-grow pt-24 relative">
+        <PageTopBackdrop />
+        <div className="relative z-10">
+          <Outlet />
+        </div>
       </main>
 
       {/* Footer */}
