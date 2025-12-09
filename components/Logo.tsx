@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
-const Logo: React.FC<{ className?: string; compact?: boolean }> = ({ className = '', compact = false }) => {
+const Logo: React.FC<{ className?: string; size?: number }> = ({ className = '', size = 48 }) => {
   const [imgError, setImgError] = useState(false);
   const imgSrc = '/cortx-logo-bluish.png';
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex items-center ${className}`}>
       {!imgError && (
         <img
           src={imgSrc}
           alt="Cort X"
-          width={compact ? 36 : 48}
-          height={compact ? 36 : 48}
+          width={size}
+          height={size}
           className="rounded-md object-contain"
           onError={() => setImgError(true)}
         />
       )}
 
       {imgError && (
-        <svg width={compact ? 36 : 48} height={compact ? 36 : 48} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <svg width={size} height={size} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
           <defs>
             <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#2b6ef6" />
@@ -33,12 +33,6 @@ const Logo: React.FC<{ className?: string; compact?: boolean }> = ({ className =
             <circle cx="140" cy="8" r="12" fill="#d946ef" />
           </g>
         </svg>
-      )}
-
-      {!compact && (
-        <div className="flex flex-col leading-tight">
-          <span className="font-bold text-xl text-white">Cort <span className="text-cort-400">X</span></span>
-        </div>
       )}
     </div>
   );
