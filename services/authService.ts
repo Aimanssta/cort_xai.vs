@@ -24,6 +24,8 @@ export interface SignupData extends LoginCredentials {
   name: string;
 }
 
+export type Business = BusinessProfile;
+
 class AuthService {
   private currentUser: AuthUser | null = null;
   private isAuthenticated: boolean = false;
@@ -142,6 +144,68 @@ class AuthService {
    */
   getToken(): string | null {
     return this.authToken;
+  }
+
+  /**
+   * Get Google OAuth login URL from backend
+   */
+  async getGoogleAuthUrl(): Promise<string> {
+    try {
+      const API_URL = (import.meta.env as any).VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${API_URL}/auth/google-url`, {
+        method: 'POST',
+      });
+
+      if (!response.ok) throw new Error('Failed to get auth URL');
+
+      const data = await response.json();
+      return data.authUrl;
+    } catch (error) {
+      console.error('Error getting Google auth URL:', error);
+      // Fallback: return demo message
+      throw new Error('Failed to initialize Google login. Make sure backend is running.');
+    }
+  }
+
+  /**
+   * Handle Google OAuth callback
+   */
+  async handleGoogleCallback(code: string): Promise<AuthUser> {
+    try {
+      const API_URL = (import.meta.env as any).VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${API_URL}/auth/google-callback`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+
+      if (!response.ok) throw new Error('Google authentication failed');
+
+      const data = await response.json();
+      const { token, user, businesses } = data;
+
+      const newUser: AuthUser = {
+        id: `user_${Date.now()}`,
+        email: user.email,
+        name: user.name,
+        businesses: businesses || [],
+        createdAt: new Date().toISOString(),
+        lastLogin: new Date().toISOString(),
+      };
+
+      localStorage.setItem(`auth_user_${user.email}`, JSON.stringify(newUser));
+      localStorage.setItem('currentAuthEmail', user.email);
+      localStorage.setItem('authToken', token);
+
+      this.currentUser = newUser;
+      this.authToken = token;
+      this.isAuthenticated = true;
+
+      return newUser;
+    } catch (error) {
+      console.error('Google callback error:', error);
+      throw error;
+    }
   }
 
   /**
