@@ -150,6 +150,12 @@ const Layout: React.FC<LayoutProps> = ({
           />
           <SidebarItem 
             icon={<Megaphone className="w-5 h-5" />} 
+            label="Advanced Strategy" 
+            active={currentView === 'advanced-strategy'}
+            onClick={() => onNavigate('advanced-strategy')}
+          />
+          <SidebarItem 
+            icon={<Megaphone className="w-5 h-5" />} 
             label="Social Media" 
             active={currentView === 'social-media'}
             onClick={() => onNavigate('social-media')}

@@ -7,6 +7,7 @@ import GBPDashboard from './components/GBPDashboard';
 import PostScheduler from './components/PostScheduler';
 import SocialMediaManager from './components/SocialMediaManager';
 import WebsiteAnalysis from './components/WebsiteAnalysis';
+import AdvancedPostScheduler from './components/AdvancedPostScheduler';
 import { SeoIssue, ViewState, Review, Post, Keyword, BusinessProfile, SocialPlatform, PostScheduleTemplate } from './types';
 import { 
   generateProfileSuggestions, 
@@ -645,6 +646,19 @@ const App: React.FC = () => {
             onGeneratePost={(topic, platforms) => {
               postAutomationService.generateAndPublishPost(topic, activeProfile.id, platforms, activeProfile.name);
             }}
+          />
+        );
+      
+      case 'advanced-strategy':
+        return (
+          <AdvancedPostScheduler
+            businessName={activeProfile.name}
+            businessType={activeProfile.type}
+            servingAreas={[
+              { name: 'Downtown', zipCodes: ['10001'], radius: 2 },
+              { name: 'Uptown', zipCodes: ['10028'], radius: 2 },
+              { name: 'Brooklyn', zipCodes: ['11201'], radius: 3 },
+            ]}
           />
         );
       
