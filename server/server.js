@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { google } from 'googleapis.js';
+import { google } from 'googleapis';
 import jwt from 'jsonwebtoken';
 
 dotenv.config();
