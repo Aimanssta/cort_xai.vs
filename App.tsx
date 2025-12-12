@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Layout from './components/Layout';
+import Login from './components/Login';
+import BusinessSelector from './components/BusinessSelector';
 import MetricsChart from './components/Charts';
 import VoiceChat from './components/VoiceChat';
 import GBPDashboard from './components/GBPDashboard';
@@ -15,6 +17,7 @@ import {
   generateMarketingPost, 
   discoverKeywords 
 } from './services/geminiService';
+import { authService, AuthUser, Business } from './services/authService';
 import { postAutomationService } from './services/postAutomationService';
 import { socialMediaService } from './services/socialMediaService';
 import { 
@@ -558,6 +561,29 @@ const PlaceholderView: React.FC<{ title: string; icon: React.ReactNode }> = ({ t
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>('audit');
   const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
+    const [user, setUser] = useState<AuthUser | null>(null);
+    const [selectedBusiness, setSelectedBusiness] = useState<Business | null>(null);
+    const [appLoading, setAppLoading] = useState(true);
+
+    useEffect(() => {
+      const currentUser = authService.getCurrentUser();
+      setUser(currentUser);
+    
+      if (currentUser) {
+        const businesses = authService.getUserBusinesses();
+        if (businesses.length > 0) {
+          setSelectedBusiness(businesses[0]);
+        }
+      }
+    
+      setAppLoading(false);
+    }, []);
+
+    const handleLogout = () => {
+      authService.logout();
+      setUser(null);
+      setSelectedBusiness(null);
+    };
   
   // Profile State
   const [profiles, setProfiles] = useState<BusinessProfile[]>([
@@ -575,6 +601,33 @@ const App: React.FC = () => {
     }
   ]);
   const [activeProfileId, setActiveProfileId] = useState('1');
+
+  // Show loading screen
+  if (appLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-indigo-950/20 flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <div className="w-12 h-12 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin mb-4" />
+          <p className="text-gray-400">Loading Cort X AI...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show login screen if not authenticated
+  if (!user) {
+    return <Login onLoginSuccess={() => setUser(authService.getCurrentUser())} />;
+  }
+
+  // Show business selector if authenticated but no business selected
+  if (!selectedBusiness) {
+    return (
+      <BusinessSelector 
+        onBusinessSelect={setSelectedBusiness}
+        onLogout={handleLogout}
+      />
+    );
+  }
 
   const activeProfile = profiles.find(p => p.id === activeProfileId) || profiles[0];
 
@@ -746,6 +799,7 @@ const App: React.FC = () => {
         currentProfile={activeProfile}
         onSwitchProfile={(p) => setActiveProfileId(p.id)}
         onConnectClick={() => setIsConnectModalOpen(true)}
+        onLogout={handleLogout}
       >
          <div className="mb-8 flex items-center gap-4">
             <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg overflow-hidden border-2 border-surfaceHighlight">
