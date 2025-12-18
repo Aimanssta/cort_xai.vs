@@ -1,1 +1,1 @@
-web: sh -lc "cd server && npm install && npm start"
+web: node server/server.js
