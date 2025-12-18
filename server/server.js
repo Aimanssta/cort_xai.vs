@@ -38,6 +38,18 @@ const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_REDIRECT_URI || 'http://localhost:5173/auth/callback'
 );
 
+// Expose a small debug endpoint (non-sensitive) to help verify env configuration
+app.get('/debug/env', (req, res) => {
+  res.json({
+    FRONTEND_URL,
+    GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI || 'http://localhost:5173/auth/callback',
+    GOOGLE_CLIENT_ID_SET: !!process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET_SET: !!process.env.GOOGLE_CLIENT_SECRET,
+    JWT_SECRET_SET: !!process.env.JWT_SECRET,
+    PORT: PORT
+  });
+});
+
 /**
  * POST /auth/google-url
  * Generate Google OAuth login URL
@@ -149,7 +161,14 @@ app.post('/auth/google-callback', async (req, res) => {
     });
   } catch (error) {
     console.error('Auth callback error:', error);
-    res.status(500).json({ error: error.message });
+    // If the underlying error has more details (from Google APIs), log them
+    try {
+      if (error.response && error.response.data) console.error('OAuth error response:', error.response.data);
+      if (error.errors) console.error('Google API errors:', error.errors);
+    } catch (e) {
+      // ignore
+    }
+    res.status(500).json({ error: error.message, hint: error.response?.data || error.errors || null });
   }
 });
 
