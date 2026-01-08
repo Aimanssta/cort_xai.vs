@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="transparent"/>
+  <!-- Simplified USA silhouette box -->
+  <rect x="40" y="70" width="920" height="420" rx="26" ry="26" fill="#0f1724" stroke="#0f1724"/>
+
+  <!-- Region markers (approx positions) -->
+  <!-- Northeast -->
+  <g id="northeast">
+    <circle cx="760" cy="140" r="28" fill="url(#g1)" opacity="0.95" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="805" y="146" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20">Northeast</text>
+  </g>
+  <!-- Midwest -->
+  <g id="midwest">
+    <circle cx="540" cy="210" r="28" fill="#06b6d4" opacity="0.95" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="582" y="216" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20">Midwest</text>
+  </g>
+  <!-- South -->
+  <g id="south">
+    <circle cx="560" cy="330" r="28" fill="#f59e0b" opacity="0.95" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="602" y="336" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20">South</text>
+  </g>
+  <!-- West -->
+  <g id="west">
+    <circle cx="160" cy="230" r="28" fill="#ef4444" opacity="0.95" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="200" y="236" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20">West</text>
+  </g>
+
+  <!-- Small legend -->
+  <g transform="translate(60,480)">
+    <rect x="0" y="0" width="380" height="86" rx="12" fill="#020617" opacity="0.9" stroke="#111827"/>
+    <text x="16" y="28" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">GEO Signals — Regional Focus</text>
+    <g transform="translate(16,36)">
+      <circle cx="8" cy="30" r="6" fill="#10b981"/><text x="22" y="34" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="13">Entity Authority (Northeast)</text>
+      <circle cx="8" cy="54" r="6" fill="#06b6d4"/><text x="22" y="58" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="13">Structured Local Content (Midwest)</text>
+    </g>
+  </g>
+</svg>
