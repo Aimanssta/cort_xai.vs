@@ -4,6 +4,7 @@ import { Menu, X, Mail, MapPin, Phone, ArrowRight, Activity } from 'lucide-react
 import AICallAgent from './AICallAgent';
 import Logo from './Logo';
 import PageTopBackdrop from './PageTopBackdrop';
+import Analytics from './Analytics';
 
 const Layout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,6 +32,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cort-500/30">
+      <Analytics />
       {/* AI Call Agent Widget */}
       <AICallAgent />
 

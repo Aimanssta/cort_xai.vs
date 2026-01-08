@@ -17,13 +17,25 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', company: '', interest: 'Sales Agents', message: '' });
-    }, 1500);
+    // POST to serverless contact endpoint
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then(async (res) => {
+        setIsSubmitting(false);
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data?.error || 'Submission failed');
+        }
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', company: '', interest: 'Sales Agents', message: '' });
+      })
+      .catch((err) => {
+        setIsSubmitting(false);
+        alert('Error sending message: ' + (err.message || err));
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
