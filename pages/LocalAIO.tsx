@@ -156,18 +156,8 @@ const LocalAIO: React.FC = () => {
             </div>
           </div>
 
-          {/* Replace AIInsights with 3x3 cropped visual grid */}
-          <div className="mb-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {[1,2,3,4,5,6,7,8,9].map(i => (
-                  <div key={i} className="rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-lg">
-                    <img src={`/insights/insight-${i}.svg`} alt={`Insight ${i}`} className="w-full h-56 object-cover" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* AI Insights & Local Search Trends */}
+          <AIInsights />
         </div>
       </div>
     </>

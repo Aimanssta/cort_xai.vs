@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://cort-xai-vs-mon4-mnbcuuwyu-aimansstas-projects.vercel.app/sitemap.xml
