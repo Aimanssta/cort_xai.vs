@@ -43,7 +43,7 @@ const LocalAIO: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/10 blur-[80px] rounded-full"></div>
               <img 
-                src="https://images.unsplash.com/photo-1460925895917-adf4e4d35eb1?w=800&h=600&fit=crop" 
+                src="/borges ranking.PNG" 
                 alt="Rank #1 in AI Search - Hialeah, FL" 
                 className="relative z-10 rounded-2xl shadow-2xl border border-slate-700 w-full object-cover h-96" 
               />
