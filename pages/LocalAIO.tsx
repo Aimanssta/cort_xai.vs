@@ -43,9 +43,9 @@ const LocalAIO: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/10 blur-[80px] rounded-full"></div>
               <img 
-                src="https://picsum.photos/seed/map/800/600" 
-                alt="Local Map Pack Ranking" 
-                className="relative z-10 rounded-2xl shadow-2xl border border-slate-700" 
+                src="https://images.unsplash.com/photo-1460925895917-adf4e4d35eb1?w=800&h=600&fit=crop" 
+                alt="Rank #1 in AI Search - Hialeah, FL" 
+                className="relative z-10 rounded-2xl shadow-2xl border border-slate-700 w-full object-cover h-96" 
               />
               {/* Floating Badge */}
               <div className="absolute top-10 -right-4 bg-white text-slate-900 p-4 rounded-lg shadow-xl z-20 animate-bounce" style={{animationDuration: '4s'}}>
@@ -53,7 +53,7 @@ const LocalAIO: React.FC = () => {
                     <TrendingUp className="h-5 w-5 text-emerald-600" />
                     <span>Rank #1 Achieved</span>
                  </div>
-                 <div className="text-xs text-slate-500">New York, NY Service Area</div>
+                 <div className="text-xs text-slate-500">Hialeah, FL Service Area</div>
               </div>
             </div>
             </div>
