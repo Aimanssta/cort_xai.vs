@@ -43,7 +43,7 @@ const LocalAIO: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/10 blur-[80px] rounded-full"></div>
               <img 
-                src="/borges ranking.PNG" 
+                src="/borges-ranking.PNG" 
                 alt="Rank #1 in AI Search - Hialeah, FL" 
                 className="relative z-10 rounded-2xl shadow-2xl border border-slate-700 w-full object-cover h-96" 
               />
@@ -55,7 +55,6 @@ const LocalAIO: React.FC = () => {
                  </div>
                  <div className="text-xs text-slate-500">Hialeah, FL Service Area</div>
               </div>
-            </div>
             </div>
 
             {/* Generative Engine Optimization (GEO) - promote right after hero */}
@@ -80,7 +79,7 @@ const LocalAIO: React.FC = () => {
                   </div>
                 </div>
                 <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
-                  <img src="/us-geo-map.svg" alt="GEO USA map" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
+                  <img src="/website-geo.png" alt="GEO visualization" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
                 </div>
               </div>
             </div>
@@ -90,7 +89,7 @@ const LocalAIO: React.FC = () => {
 
             {/* The Future of Search - Educational SEO Section */}
             <div className="mb-24">
-            <div className="text-center max-w-3xl mx-auto mb-12">
+                              <img src="/website-geo.png" alt="GEO visualization" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
               <h2 className="text-3xl font-bold text-white mb-4">The Shift: From SEO to GEO</h2>
               <p className="text-slate-400">
                 Generative Engine Optimization (GEO) is the new standard. Search is no longer about 10 blue links; it's about providing the definitive answer.
@@ -151,7 +150,7 @@ const LocalAIO: React.FC = () => {
               </div>
 
               <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
-                <img src="/us-geo-map.svg" alt="GEO USA map" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
+                <img src="/website-geo.png" alt="GEO visualization" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
               </div>
             </div>
           </div>
@@ -161,7 +160,7 @@ const LocalAIO: React.FC = () => {
         </div>
       </div>
     </>
-  );
-};
+    );
+  };
 
 export default LocalAIO;

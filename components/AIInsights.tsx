@@ -20,19 +20,19 @@ const insights: Insight[] = [
     title: 'Local Dominance: Why AI Overviews Favor Data Authority',
     desc: 'Google\'s AI overviews pull answers from the most authoritative local sources. Rank #1 in AI by building entity authority across 70+ directories, ensuring consistent NAP, and winning the "data quality game."',
     icon: <MapPin className="h-6 w-6 text-blue-400" />,
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab5c3c3a5?w=500&h=300&fit=crop&q=80',
+    image: '/borges-ranking.PNG',
   },
   {
     title: 'Voice Search & Semantic Intent in 2025',
     desc: '55% of US households use voice-activated devices. Voice queries demand conversational, long-tail keywords and structured data. Cort X AI helps you dominate voice by optimizing for natural language processing (NLP) recognition.',
     icon: <Zap className="h-6 w-6 text-yellow-400" />,
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc338c?w=500&h=300&fit=crop&q=80',
+    image: '/voice-search-website.png',
   },
   {
     title: 'Citation Building: The Silent Ranking Factor',
     desc: 'Citations (online mentions of your business) signal credibility to both AI and traditional search. Consistent citations across Yelp, Google, Apple Maps, and 70+ directories boost local visibility by 40%+ on average.',
     icon: <BarChart3 className="h-6 w-6 text-purple-400" />,
-    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b8d5?w=500&h=300&fit=crop&q=80',
+    image: '/social-web.png',
   },
   {
     title: 'Review Sentiment & AI Trust Scores',
