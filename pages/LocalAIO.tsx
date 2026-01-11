@@ -3,8 +3,7 @@ import { MapPin, Star, TrendingUp, Search, Globe, Cpu, Mic, Sparkles, Zap, Check
 import Button from '../components/Button';
 import SEO from '../components/SEO';
 // LocalAIDashboard removed per request (audit form removed from website)
-import HeroAIO from '../components/HeroAIO';
-import FeaturesAIO from '../components/FeaturesAIO';
+// HeroAIO and FeaturesAIO removed from this page per request
 import AIInsights from '../components/AIInsights';
 
 const LocalAIO: React.FC = () => {
@@ -15,7 +14,7 @@ const LocalAIO: React.FC = () => {
         description="Dominate local search & AI answers. AI-optimized Business Profiles, automated review management, and local AIO signals for US markets."
       />
 
-      <HeroAIO />
+      {/* Hero removed per user request */}
 
       <div className="bg-slate-950 pt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -59,8 +58,7 @@ const LocalAIO: React.FC = () => {
 
             {/* Promotional GEO block removed as requested */}
 
-            {/* Features (replaced by FeaturesAIO) */}
-            <FeaturesAIO />
+            {/* Features section removed per user request */}
 
             {/* The Future of Search - Educational SEO Section */}
             <div className="mb-24">
