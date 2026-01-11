@@ -57,32 +57,7 @@ const LocalAIO: React.FC = () => {
               </div>
             </div>
 
-            {/* Generative Engine Optimization (GEO) - promote right after hero */}
-            <div className="mb-24">
-              <div className="text-center max-w-3xl mx-auto mb-6">
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 leading-tight">Own Your Backyard.<br/><span className="text-emerald-500">Rank #1 in AI Search.</span></h1>
-                <p className="text-slate-400">GEO prepares your business profile, content, and signals so generative engines return your business as the definitive local answer.</p>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-8 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="space-y-6 text-slate-400">
-                  <p className="leading-relaxed">
-                    We optimize business profiles, service-area pages, and review evidence so that LLMs and AI snapshots cite your business for local intent queries. Below is a regional GEO visualization.
-                  </p>
-                  <ul className="list-disc list-inside space-y-2">
-                    <li><strong>Unified NAP & Schema:</strong> Consistent entity signals across major directories.</li>
-                    <li><strong>Service-Area Content:</strong> Region-first copy that matches conversational queries.</li>
-                    <li><strong>Review Snippets:</strong> Structured reviews surfaced as supporting evidence for AI answers.</li>
-                  </ul>
-                  <div className="mt-4">
-                    <Button to="/contact" variant="primary">Request a GEO Audit</Button>
-                  </div>
-                </div>
-                <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
-                  <img src="/website-geo.png" alt="GEO visualization" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
-                </div>
-              </div>
-            </div>
+            {/* Promotional GEO block removed as requested */}
 
             {/* Features (replaced by FeaturesAIO) */}
             <FeaturesAIO />
@@ -124,7 +99,36 @@ const LocalAIO: React.FC = () => {
 
           {/* Local Audit Dashboard removed per request */}
 
-          {/* Detailed GEO section removed (duplicate) */}
+          {/* Generative Engine Optimization (GEO) - Detailed Section */}
+          <div className="mb-24">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold text-white mb-4">Generative Engine Optimization (GEO)</h2>
+              <p className="text-slate-400">GEO is the practice of preparing your business to be the single authoritative answer returned by generative models and AI-powered search for queries within your service areas.</p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6 text-slate-400">
+                <p className="leading-relaxed">
+                  Generative Engines (ChatGPT, Gemini, SGE and other LLM-powered assistants) consume signals differently than traditional search engines. Instead of ranking many pages, they synthesize an answer from the highest-authority entities and the most consistent local signals. Our GEO approach creates and reinforces those signals across the web.
+                </p>
+
+                <ul className="list-disc list-inside space-y-3">
+                  <li><strong>Entity Authority:</strong> We align your business name, address, phone (NAP), and schema across 70+ trusted sources so generative models see a single, verified entity with high trust.</li>
+                  <li><strong>Localized Content Signals:</strong> Region-aware landing pages, conversational FAQs, and service-area content tailored to regional intent (Northeast, Midwest, South, West).</li>
+                  <li><strong>Structured Data for LLMs:</strong> We publish machine-readable data (JSON-LD, knowledge panels, review snippets) optimized for the semantic parsers used by AI snapshots.</li>
+                  <li><strong>Conversational Feedback Loop:</strong> We capture user interactions and conversational signals, then feed them back to model-tuned content so answers continuously improve for your service areas.</li>
+                </ul>
+
+                <div className="mt-4">
+                  <Button to="/contact" variant="primary">Request a GEO Audit</Button>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
+                <img src="/website-geo.png" alt="GEO visualization" className="w-full h-auto max-h-[420px] object-contain rounded-md shadow-inner" />
+              </div>
+            </div>
+          </div>
 
           {/* AI Insights & Local Search Trends */}
           <AIInsights />
