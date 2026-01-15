@@ -375,6 +375,101 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Case Study: White Glove Roofing */}
+      <section className="py-32 relative overflow-hidden bg-slate-950 border-t border-slate-800/50">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cort-900/10 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Video Section */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/30 to-cort-600/30 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 -z-10"></div>
+              
+              <div className="relative bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl aspect-video flex items-center justify-center group">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"></div>
+                
+                {/* Play Button / Video Placeholder */}
+                <div className="relative z-20 flex flex-col items-center gap-6">
+                  <div className="w-24 h-24 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all duration-300 shadow-2xl">
+                    <div className="w-0 h-0 border-l-12 border-l-transparent border-r-0 border-r-transparent border-t-8 border-t-transparent border-b-8 border-b-transparent" style={{borderLeft: '12px solid white', borderTop: '8px solid transparent', borderBottom: '8px solid transparent'}}></div>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-center">Watch Richard's Story</p>
+                    <p className="text-slate-400 text-sm mt-2">How Custom AI Changed White Glove Roofing</p>
+                  </div>
+                </div>
+                
+                {/* Video tag for reference */}
+                <video
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  controls
+                  preload="none"
+                >
+                  <source src="/richard-review.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            {/* Right: Case Study Content */}
+            <div className="space-y-12">
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-6 uppercase tracking-wider">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                  CASE STUDY
+                </div>
+                
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                  How We Replaced "Junk Leads" with <span className="text-emerald-400">High-Value Homeowners</span>
+                </h2>
+                
+                <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                  White Glove Roofing was struggling with generic lead aggregators that sold the same contact to 10 competitors. Cort X AI built a custom geospatial scraper that identified residential properties with older roofs in high-income zip codes, cross-referencing them with recent storm path data.
+                </p>
+              </div>
+
+              {/* Key Results */}
+              <div className="grid grid-cols-3 gap-6">
+                <div className="glass-card p-6 rounded-2xl text-center hover:border-emerald-500/50 transition-all">
+                  <div className="text-4xl md:text-5xl font-bold text-emerald-400 mb-2">3.5x</div>
+                  <p className="text-slate-400 text-sm font-medium">Increase in Quote<br/>Requests</p>
+                </div>
+                <div className="glass-card p-6 rounded-2xl text-center hover:border-cort-500/50 transition-all">
+                  <div className="text-4xl md:text-5xl font-bold text-cort-400 mb-2">40%</div>
+                  <p className="text-slate-400 text-sm font-medium">Reduction in Cost<br/>Per Lead</p>
+                </div>
+                <div className="glass-card p-6 rounded-2xl text-center hover:border-blue-500/50 transition-all">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">85%</div>
+                  <p className="text-slate-400 text-sm font-medium">Lead Contact<br/>Rate</p>
+                </div>
+              </div>
+
+              {/* Testimonial */}
+              <div className="bg-slate-900/60 backdrop-blur border border-slate-700/50 rounded-2xl p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="text-3xl text-emerald-400">"</div>
+                </div>
+                <p className="text-white text-lg leading-relaxed font-medium mb-6">
+                  The difference was night and day. Instead of chasing ghosts, our sales team is walking into homes that actually need our help. Cort X AI built a pipeline that we own.
+                </p>
+                <div>
+                  <p className="text-white font-bold">Richard</p>
+                  <p className="text-slate-400 text-sm">Owner, White Glove Roofing</p>
+                </div>
+              </div>
+
+              <Button to="/contact" variant="primary" className="text-lg px-8 py-4 w-full justify-center shadow-xl shadow-emerald-600/20">
+                Get Your Custom Strategy
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SEO Content Block: Why US Market Needs AI */}
       <section className="py-24 border-t border-slate-800/50 bg-slate-950 relative">
         <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-slate-900 to-transparent opacity-30 pointer-events-none"></div>
