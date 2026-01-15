@@ -154,23 +154,32 @@ const LeadGen: React.FC = () => {
           {/* Case Study Section */}
           <div className="mb-24">
             <div className="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden">
-              <div className="grid lg:grid-cols-2">
-                {/* Video Placeholder / Visual Side */}
-                <div className="relative min-h-[400px] bg-slate-800 group cursor-pointer overflow-hidden">
-                  <img 
-                    src="https://picsum.photos/seed/roofing/800/800" 
-                    alt="White Glove Roofing Founder" 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="bg-white/20 backdrop-blur-sm border border-white/30 p-5 rounded-full group-hover:scale-110 transition-transform duration-300">
-                      <Play className="h-8 w-8 text-white fill-white" />
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Video Section */}
+                <div className="relative bg-slate-800 group cursor-pointer overflow-hidden flex items-center justify-center p-8 lg:p-4">
+                  <div className="relative bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl aspect-[9/16] w-full max-w-xs flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"></div>
+                    
+                    {/* Play Button / Video Placeholder */}
+                    <div className="relative z-20 flex flex-col items-center gap-6">
+                      <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all duration-300 shadow-2xl">
+                        <div className="w-0 h-0 border-l-12 border-l-transparent border-r-0 border-r-transparent border-t-8 border-t-transparent border-b-8 border-b-transparent" style={{borderLeft: '10px solid white', borderTop: '6px solid transparent', borderBottom: '6px solid transparent'}}></div>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-white font-semibold text-sm">Watch Richard's Story</p>
+                        <p className="text-slate-400 text-xs mt-1">White Glove Roofing</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="text-sm font-medium text-slate-300 uppercase tracking-wider mb-1">Customer Story</div>
-                    <h3 className="text-2xl font-bold text-white">White Glove Roofing</h3>
-                    <p className="text-slate-300 text-sm mt-1">Top-Rated Contractor · USA</p>
+                    
+                    {/* Video tag for reference */}
+                    <video
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      controls
+                      preload="none"
+                    >
+                      <source src="/richard-review.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 </div>
 

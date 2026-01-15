@@ -388,7 +388,7 @@ const Home: React.FC = () => {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/30 to-cort-600/30 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 -z-10"></div>
               
-              <div className="relative bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl aspect-video flex items-center justify-center group">
+              <div className="relative bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl aspect-[9/16] max-w-sm mx-auto flex items-center justify-center group">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"></div>
                 
                 {/* Play Button / Video Placeholder */}
