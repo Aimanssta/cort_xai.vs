@@ -128,6 +128,79 @@ const LocalAIO: React.FC = () => {
             </div>
           </div>
 
+          {/* Data Privacy & Compliance Section */}
+          <div className="mb-24 border-t border-slate-800 pt-24">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-60"></div>
+                <img 
+                  src="/DataPrivacy&ComplianceLocalAI.png" 
+                  alt="Data Privacy & Compliance in Local AI" 
+                  className="relative z-10 rounded-2xl shadow-2xl border border-slate-700 w-full object-cover" 
+                />
+              </div>
+
+              <div className="space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold mb-6 uppercase tracking-wider">
+                    <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                    Compliance & Trust
+                  </div>
+                  
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Data Privacy & <span className="text-blue-400">Compliance</span> in Local AI
+                  </h2>
+                  
+                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                    As you automate lead capture and customer data collection, GDPR and CCPA compliance become non-negotiable. Discover how to leverage AI while protecting customer privacy and building brand trust.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center mt-1">
+                      <CheckCircle className="h-4 w-4 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold mb-2">GDPR & CCPA Compliance</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">
+                        Our AI systems are built with privacy-by-design principles, ensuring all data collection, processing, and storage meets GDPR, CCPA, and other regional privacy regulations.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center mt-1">
+                      <CheckCircle className="h-4 w-4 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold mb-2">Customer Data Protection</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">
+                        All customer information is encrypted, anonymized where possible, and stored securely with automatic data deletion policies to minimize risk and liability.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center mt-1">
+                      <CheckCircle className="h-4 w-4 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold mb-2">Brand Trust & Transparency</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">
+                        Transparent data practices and customer consent mechanisms build long-term trust, turning privacy compliance from a legal requirement into a competitive advantage.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <Button to="/contact" variant="primary" className="mt-8">
+                  Learn About Our Compliance Standards
+                </Button>
+              </div>
+            </div>
+          </div>
+
           {/* AI Insights & Local Search Trends */}
           <AIInsights />
         </div>
