@@ -566,14 +566,14 @@ const App: React.FC = () => {
   const [profiles, setProfiles] = useState<BusinessProfile[]>([
     { 
       id: '1', 
-      name: 'Avinoum Complex', 
-      type: 'Construction & Design', 
-      location: 'Washington, USA',
-      initials: 'AC',
+      name: 'Borges Roofing Inc.', 
+      type: 'Roofing', 
+      location: 'Hialeah, FL',
+      initials: 'BR',
       color: 'bg-indigo-600',
       isConnected: true,
       lastSync: '2 hours ago',
-      websiteUrl: 'avinoumcomplex.com',
+      websiteUrl: 'borgesroofing.com',
       socials: { facebook: true, instagram: true, linkedin: false, twitter: false }
     }
   ]);
