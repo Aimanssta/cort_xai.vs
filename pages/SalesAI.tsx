@@ -7,8 +7,21 @@ const SalesAI: React.FC = () => {
   return (
     <>
       <SEO 
-        title="AI Sales Agents & Automation USA"
-        description="Empower your US sales team with AI agents that work 24/7. Automate outreach, qualification, and booking. Perfect for SaaS, Real Estate, and Finance."
+        title="AI Sales Agents & Automation for USA Businesses | 24/7 Lead Qualification"
+        description="Deploy AI sales agents that work 24/7 qualifying leads, scheduling meetings, and closing deals. Automate your entire sales process and increase revenue by 3.5x. Perfect for SaaS, Real Estate, Home Services, and B2B."
+        keywords="AI sales agents, sales automation software, automated lead qualification, AI sales reps, sales process automation, B2B sales automation, real estate lead generation, SaaS lead generation, 24/7 sales automation"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: 'Cort X AI Sales Agents',
+          description: 'AI-powered sales agents for automated lead qualification and meeting booking',
+          brand: { '@type': 'Brand', name: 'Cort X AI' },
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '1200'
+          }
+        }}
       />
 
       <div className="bg-slate-950 pt-10">

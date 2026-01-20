@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, Bot, Target, Map, BarChart3, ShieldCheck, Zap, ChevronDown, ChevronUp, Building2, Globe2, Star, Award, Sparkles, TrendingUp, Users, Phone, Mail, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
+import LiveAgentActivity from '../components/LiveAgentActivity';
 
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +26,28 @@ const Home: React.FC = () => {
   return (
     <>
       <SEO 
-        title="AI Sales Agents & Lead Generation USA"
-        description="Cort X AI automates your growth with custom sales agents, lead generation tools, and local AIO dominance. Trusted by top USA businesses."
+        title="AI Sales Agents & Lead Generation | USA & Florida Marketing Automation"
+        description="Cort X AI provides AI-powered sales agents, B2B lead generation, and local SEO optimization for USA & Florida businesses. Automate sales, generate qualified leads, and dominate your market with intelligent automation."
+        keywords="AI sales agents, lead generation software, marketing automation USA, Florida marketing services, B2B lead generation, AI customer acquisition, sales automation, local SEO optimization, business growth automation"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'Cort X AI',
+          applicationCategory: 'BusinessApplication',
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '1200'
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+          },
+          operatingSystem: 'Web-based',
+          areaServed: ['US', 'US-FL'],
+          keywords: 'AI sales agents, lead generation, marketing automation, sales automation'
+        }}
       />
 
       {/* Hero Section with Tech Grid Background */}
@@ -312,6 +333,78 @@ const Home: React.FC = () => {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Live Agent Activity Real-Time Feed */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] animate-float"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-cort-600/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Content */}
+            <div className="space-y-8 animate-slide-up">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  Real-Time Agent Activity
+                </h2>
+                <p className="text-slate-400 text-lg leading-relaxed">
+                  Watch your AI agents work in real-time. Every deal booked, every email sent, every lead qualified—tracked live on your dashboard.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                  <div className="p-2 bg-emerald-500/20 rounded-lg">
+                    <CheckCircle className="h-5 w-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Instant Notifications</h4>
+                    <p className="text-sm text-slate-300">Get alerts for every important milestone: meetings booked, deals closed, leads qualified</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                  <div className="p-2 bg-blue-500/20 rounded-lg">
+                    <TrendingUp className="h-5 w-5 text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Revenue Tracking</h4>
+                    <p className="text-sm text-slate-300">See deal values in real-time as your agents close business automatically</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                  <div className="p-2 bg-purple-500/20 rounded-lg">
+                    <Users className="h-5 w-5 text-purple-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Team Coordination</h4>
+                    <p className="text-sm text-slate-300">Your entire team stays synced on lead status, follow-ups, and account progress</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Live Activity Feed */}
+            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl hover:border-slate-700 transition-all duration-300">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Live Activity Feed
+                  </h3>
+                  <span className="text-xs font-mono text-slate-500">cortx_agent_v4.2.1</span>
+                </div>
+                <LiveAgentActivity />
+              </div>
+            </div>
           </div>
         </div>
       </section>

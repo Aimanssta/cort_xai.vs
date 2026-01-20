@@ -10,8 +10,33 @@ const LocalAIO: React.FC = () => {
   return (
     <>
       <SEO 
-        title="AI Powered Local AIO Services USA"
-        description="Dominate local search & AI answers. AI-optimized Business Profiles, automated review management, and local AIO signals for US markets."
+        title="AI Local SEO Optimization & Google Maps Ranking | USA & Florida"
+        description="AI-powered local SEO for USA businesses. Dominate Google Maps, local search, and business profiles with AI-optimized local AIO signals, automated review management, and local business optimization for Florida and USA markets."
+        keywords="local SEO optimization, Google Maps ranking, local business marketing, AI local SEO, Google Business Profile optimization, local search optimization, business citations, local search ranking, Florida local SEO, USA local marketing"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'LocalBusiness',
+          'name': 'Cort X AI - Local SEO Services',
+          'description': 'AI-powered local SEO and Google Maps optimization for USA businesses',
+          'areaServed': [
+            'US', 
+            'US-FL', 
+            'US-CA', 
+            'US-TX', 
+            'US-NY',
+            'Miami',
+            'Tampa',
+            'Jacksonville',
+            'Orlando',
+            'Fort Lauderdale'
+          ],
+          'serviceType': 'Local SEO Optimization',
+          'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': '4.9',
+            'ratingCount': '850'
+          }
+        }}
       />
 
       {/* Hero removed per user request */}

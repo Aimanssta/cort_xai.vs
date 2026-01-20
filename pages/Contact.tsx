@@ -45,8 +45,16 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Contact Cort X AI - Book a Demo"
-        description="Get in touch with Cort X AI tailored growth strategy. Sales agents, lead gen, and local AIO services."
+        title="Contact Cort X AI - Book a Demo & Sales Consultation | USA & Florida"
+        description="Contact Cort X AI for a free demo and consultation. AI sales agents, lead generation, and local SEO optimization for USA and Florida markets. Schedule your demo with our sales team."
+        keywords="contact sales, book demo, consultation, AI sales demo, lead generation consultation, local SEO consultation, marketing automation demo, sales agents demo, Cort X AI contact"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPoint',
+          'contactType': 'Sales',
+          'areaServed': ['US', 'US-FL'],
+          'availableLanguage': ['en-US']
+        }}
       />
 
       <div className="bg-slate-950 pt-10 min-h-screen">
@@ -67,8 +75,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold">Email Us</h4>
-                    <p className="text-slate-400">sales@cortxai.com</p>
-                    <p className="text-slate-400">support@cortxai.com</p>
+                    <p className="text-slate-400">daniel@cortxai.us</p>
+                    <p className="text-slate-400">support@cortxai.us</p>
                   </div>
                 </div>
                 
@@ -78,7 +86,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold">Call Us</h4>
-                    <p className="text-slate-400">+1 (888) 555-0123</p>
+                    <p className="text-slate-400">+1 (305) 426-7663</p>
                     <p className="text-xs text-slate-500 mt-1">Mon-Fri, 9am - 6pm EST</p>
                   </div>
                 </div>
@@ -89,8 +97,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold">Headquarters</h4>
-                    <p className="text-slate-400">100 Innovation Dr, Suite 500</p>
-                    <p className="text-slate-400">San Francisco, CA 94105</p>
+                    <p className="text-slate-400">3230 Palm Ave Suite B</p>
+                    <p className="text-slate-400">Hialeah, FL 33012, United States</p>
                   </div>
                 </div>
               </div>

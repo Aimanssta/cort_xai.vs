@@ -7,8 +7,22 @@ const LeadGen: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Custom AI Lead Generation Tools USA"
-        description="Proprietary lead scraping, enrichment, and nurturing tools compliant with US laws. High-quality data for B2B and B2C markets."
+        title="AI Lead Generation Tools & B2B Lead Database USA | Qualified Leads"
+        description="Get high-quality, pre-qualified B2B and B2C leads for your business. AI-powered lead scraping, verification, and enrichment. USA-compliant and fully managed."
+        keywords="lead generation software, B2B lead database, qualified leads USA, lead scraping tools, lead enrichment, contact database, LinkedIn lead generation, email list building, lead scoring"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: 'Cort X AI Lead Generation',
+          description: 'AI-powered lead generation and database management platform',
+          brand: { '@type': 'Brand', name: 'Cort X AI' },
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'USD',
+            highPrice: '5000',
+            lowPrice: '500'
+          }
+        }}
       />
 
       <div className="bg-slate-950 pt-10">

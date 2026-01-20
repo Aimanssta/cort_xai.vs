@@ -44,7 +44,7 @@ const insights: Insight[] = [
     title: 'Data Privacy & Compliance in Local AI',
     desc: 'As you automate lead capture and customer data collection, GDPR and CCPA compliance become non-negotiable. Discover how to leverage AI while protecting customer privacy and building brand trust.',
     icon: <Shield className="h-6 w-6 text-indigo-400" />,
-    image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?w=500&h=300&fit=crop&q=80',
+    image: '/DataPrivacy&ComplianceLocalAI.png',
   },
 ];
 

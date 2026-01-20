@@ -3,7 +3,87 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cort X AI</title>
+    <title>Cort X AI - AI Sales Agents & Lead Generation for USA & Florida</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AI sales agents, lead generation software, and local SEO optimization for USA and Florida businesses. Automate sales, qualify leads 24/7, and grow your business with AI." />
+    <meta name="keywords" content="AI sales agents, lead generation software, marketing automation USA, sales automation, AI customer acquisition, local SEO, Florida marketing services" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="author" content="Cort X AI" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Cort X AI - AI Sales Agents & Lead Generation" />
+    <meta property="og:description" content="AI-powered sales agents, lead generation, and local SEO optimization for USA and Florida markets." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cortx.ai" />
+    <meta property="og:image" content="https://cortx.ai/og-image.jpg" />
+    <meta property="og:site_name" content="Cort X AI" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cort X AI - AI Sales Agents & Lead Generation" />
+    <meta name="twitter:description" content="AI-powered sales agents and lead generation for USA and Florida businesses." />
+    <meta name="twitter:image" content="https://cortx.ai/og-image.jpg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cortx.ai" />
+    
+    <!-- Alternate Links for Localization -->
+    <link rel="alternate" hreflang="en-US" href="https://cortx.ai" />
+    <link rel="alternate" hreflang="es" href="https://cortx.ai/es" />
+    
+    <!-- Search Engine Verification -->
+    <meta name="google-site-verification" content="your-google-verification-code" />
+    <meta name="msvalidate.01" content="your-bing-verification-code" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Cort X AI",
+      "description": "AI sales agents and lead generation platform for USA and Florida businesses",
+      "url": "https://cortx.ai",
+      "areaServed": ["US", "US-FL"],
+      "serviceType": ["Sales Automation", "Lead Generation", "Local SEO Optimization"],
+      "sameAs": [
+        "https://twitter.com/cortxai",
+        "https://linkedin.com/company/cortxai",
+        "https://facebook.com/cortxai"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1200",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Cort X AI",
+      "url": "https://cortx.ai",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://cortx.ai/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -36,8 +116,10 @@
             animation: {
               'fade-in': 'fadeIn 0.5s ease-out',
               'slide-up': 'slideUp 0.6s ease-out',
+              'slide-in': 'slideIn 0.5s ease-out',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'float': 'float 6s ease-in-out infinite',
+              'bounce-gentle': 'bounceGentle 3s ease-in-out infinite',
             },
             keyframes: {
               fadeIn: {
@@ -48,9 +130,17 @@
                 '0%': { opacity: '0', transform: 'translateY(20px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
+              slideIn: {
+                '0%': { opacity: '0', transform: 'translateX(-20px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-10px)' },
+              },
+              bounceGentle: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
               }
             }
           },

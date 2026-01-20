@@ -1,4 +1,46 @@
-User-agent: *
-Disallow:
+# Cortx.ai Robots.txt for Search Engine Crawlers
+# Optimize crawling and indexing for search engines
 
-Sitemap: https://cort-xai-vs-mon4-mnbcuuwyu-aimansstas-projects.vercel.app/sitemap.xml
+# Allow all bots by default
+User-agent: *
+Allow: /
+
+# Disallow admin and protected routes
+Disallow: /dashboard
+Disallow: /leads
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.next/
+
+# Crawl delay to prevent server overload (in seconds)
+Crawl-delay: 0
+
+# Specify sitemap location for all search engines
+Sitemap: https://cortx.ai/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

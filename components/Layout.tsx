@@ -10,6 +10,7 @@ const Layout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isLiveDemo = location.pathname === '/live-demo';
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -24,7 +25,7 @@ const Layout: React.FC = () => {
     { label: 'Sales Agents', path: '/solutions/sales-agents' },
     { label: 'Lead Gen Tools', path: '/solutions/lead-gen' },
     { label: 'Local AIO', path: '/solutions/local-aio' },
-    { label: 'Live Demo', path: '/dashboard' },
+    { label: 'Live Demo', path: '/live-demo' },
     { label: 'Contact', path: '/contact' },
   ];
 
@@ -33,8 +34,8 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cort-500/30">
       <Analytics />
-      {/* AI Call Agent Widget */}
-      <AICallAgent />
+      {/* AI Call Agent Widget - Hidden on Live Demo page */}
+      {!isLiveDemo && <AICallAgent />}
 
       {/* Sticky Navigation */}
       <nav 
@@ -120,7 +121,7 @@ const Layout: React.FC = () => {
       {/* Main Content with consistent top backdrop */}
       <main className="flex-grow pt-20 md:pt-24 relative">
         <PageTopBackdrop />
-        <div className="relative z-10">
+        <div className="relative z-10 animate-fade-in" key={location.pathname}>
           <Outlet />
         </div>
       </main>
@@ -174,15 +175,15 @@ const Layout: React.FC = () => {
               <ul className="space-y-3 text-sm text-slate-400">
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-cort-500 shrink-0" />
-                  <span>100 Innovation Dr, Suite 500<br />San Francisco, CA 94105</span>
+                  <span>3230 Palm Ave Suite B<br />Hialeah, FL 33012, United States</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-cort-500 shrink-0" />
-                  <a href="mailto:hello@cortxai.com" className="hover:text-white transition-colors">hello@cortxai.com</a>
+                  <a href="mailto:daniel@cortxai.us" className="hover:text-white transition-colors">daniel@cortxai.us</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-cort-500 shrink-0" />
-                  <a href="tel:+18885550123" className="hover:text-white transition-colors">+1 (888) 555-0123</a>
+                  <a href="tel:+13054267663" className="hover:text-white transition-colors">+1 (305) 426-7663</a>
                 </li>
               </ul>
             </div>

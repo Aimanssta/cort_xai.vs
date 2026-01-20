@@ -126,8 +126,8 @@ Each plan includes onboarding, monthly reporting, and strategy optimization. Wan
 
 Which service interests you most?`,
   'support': `We offer 24/7 support:
-- Email: support@cortxai.com
-- Phone: +1 (888) 555-0123
+- Email: daniel@cortxai.us
+- Phone: +1 (305) 426-7663
 - Hours: Mon-Fri 9am-6pm EST (emergency support available)
 - Slack channel for Enterprise clients
 
