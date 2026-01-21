@@ -10,7 +10,6 @@ const Layout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isLiveDemo = location.pathname === '/live-demo';
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -34,8 +33,8 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cort-500/30">
       <Analytics />
-      {/* AI Call Agent Widget - Hidden on Live Demo page */}
-      {!isLiveDemo && <AICallAgent />}
+      {/* AI Call Agent Widget */}
+      <AICallAgent />
 
       {/* Sticky Navigation */}
       <nav 
