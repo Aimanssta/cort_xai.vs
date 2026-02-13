@@ -120,6 +120,47 @@ const LiveDemo: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Original Dashboard Section */}
+      <div className="mt-12 pt-12 border-t border-slate-800">
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-white">Dashboard</h2>
+            <p className="text-slate-400 mt-2">Access the full dashboard interface</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href={EXTERNAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-cort-600 hover:bg-cort-700 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+            >
+              Open in new tab
+            </a>
+            <a
+              href={EXTERNAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 text-sm underline"
+            >
+              Direct link
+            </a>
+          </div>
+        </div>
+
+        <div className="w-full bg-slate-900 rounded-lg overflow-hidden border border-slate-800" style={{height: '72vh'}}>
+          <iframe
+            title="Cort X AIO Dashboard"
+            src={EXTERNAL_URL}
+            className="w-full h-full"
+            sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
+          />
+        </div>
+
+        <div className="mt-4 text-slate-400 text-sm">
+          Note: If the demo does not appear, click "Open in new tab" to view it directly.
+        </div>
+      </div>
     </div>
   );
 };
