@@ -1,4 +1,5 @@
 import React from 'react';
+// Subtree reference: cortx-app (https://github.com/Aimanssta/cort-x-ai)
 const EXTERNAL_URL = 'https://cort-xai.vercel.app/';
 
 const LiveDemo: React.FC = () => {
