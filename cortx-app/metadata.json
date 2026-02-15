@@ -1,0 +1,7 @@
+{
+  "name": "Cort X AI",
+  "description": "Intelligent software to manage and optimize business profiles with real-time AI assistance.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

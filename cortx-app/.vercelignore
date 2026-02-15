@@ -1,0 +1,59 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production build artifacts
+dist
+build
+.next
+out
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.project
+.settings
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Documentation files (optional - comment out if you want these included)
+# *.md
+# 00_START_HERE.md
+# QUICK_START.md
+# API_CONFIGURATION.md
+# ARCHITECTURE.md
+# VISUAL_GUIDE.md
+# README_NEW_FEATURES.md
+# IMPLEMENTATION_*.md
+# PROJECT_COMPLETION_REPORT.md
+# DOCUMENTATION_INDEX.md
+# FILE_INVENTORY.md
+# SUMMARY.txt
+# COMPLETION_CERTIFICATE.txt

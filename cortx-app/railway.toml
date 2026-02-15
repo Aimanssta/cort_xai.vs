@@ -1,0 +1,11 @@
+project = "cort-x-ai"
+
+[[services]]
+name = "backend"
+path = "server"
+# No explicit startCommand so the Dockerfile's CMD is used for container startup.
+# When deploying with Docker, Railway will use the image entrypoint/CMD.
+runOnDeploy = true
+
+# Note: Sensitive environment variables (GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, JWT_SECRET, etc.)
+# should be set in the Railway dashboard or via the Railway CLI, not committed here.
