@@ -13,8 +13,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const doc = new PDFDocument({ size: 'A4', margin: 35, bufferPages: true });
-    const chunks: any[] = [];
-    doc.on('data', (chunk) => chunks.push(chunk));
+    const chunks: Buffer[] = [];
+    doc.on('data', (chunk: Buffer) => chunks.push(chunk));
     doc.on('end', () => {
       const result = Buffer.concat(chunks);
       res.setHeader('Content-Type', 'application/pdf');

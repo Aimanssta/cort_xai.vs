@@ -54,8 +54,8 @@ const SEO: React.FC<SEOProps> = ({
     contact: {
       '@type': 'ContactPoint',
       contactType: 'Sales',
-      telephone: '+1-305-426-7663',
-      email: 'daniel@cortxai.us'
+      telephone: '+1-321-534-0423',
+      email: 'daniel.theaioguy@gmail.com'
     }
   };
 
@@ -67,7 +67,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta charset="UTF-8" />
+      <meta charSet="UTF-8" />
       
       {/* Open Graph */}
       <meta property="og:title" content={title} />

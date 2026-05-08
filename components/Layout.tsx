@@ -178,11 +178,11 @@ const Layout: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-cort-500 shrink-0" />
-                  <a href="mailto:daniel@cortxai.us" className="hover:text-white transition-colors">daniel@cortxai.us</a>
+                  <a href="mailto:daniel.theaioguy@gmail.com" className="hover:text-white transition-colors">daniel.theaioguy@gmail.com</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-cort-500 shrink-0" />
-                  <a href="tel:+13054267663" className="hover:text-white transition-colors">+1 (305) 426-7663</a>
+                  <a href="tel:+13215340423" className="hover:text-white transition-colors">321-534-0423</a>
                 </li>
               </ul>
             </div>

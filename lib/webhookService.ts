@@ -1,8 +1,8 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 interface Webhook {
-  _id?: string;
+  _id?: ObjectId | string;
   url: string;
   events: string[];
   active: boolean;
@@ -33,10 +33,20 @@ export async function triggerWebhooks(event: WebhookEvent): Promise<void> {
     const webhooksCollection = db.collection('webhooks');
 
     // Find matching webhooks
-    const webhooks = await webhooksCollection.find({
+    const webhookDocs = await webhooksCollection.find({
       events: { $in: [event.type, '*'] },
       active: true,
-    }).toArray() as Webhook[];
+    }).toArray();
+
+    const webhooks: Webhook[] = webhookDocs.map(doc => ({
+      _id: doc._id,
+      url: doc.url,
+      events: doc.events,
+      active: doc.active,
+      createdAt: doc.createdAt,
+      lastTriggeredAt: doc.lastTriggeredAt,
+      failureCount: doc.failureCount,
+    }));
 
     // Trigger each webhook
     for (const webhook of webhooks) {
@@ -69,8 +79,7 @@ async function triggerWebhookAsync(webhook: Webhook, event: WebhookEvent, collec
       await collection.updateOne(
         { _id: webhook._id },
         {
-          $set: { lastTriggeredAt: new Date() },
-          $set: { failureCount: 0 },
+          $set: { lastTriggeredAt: new Date(), failureCount: 0 },
         }
       );
     } else {
@@ -109,7 +118,7 @@ export async function registerWebhook(url: string, events: string[], token: stri
     const db = client.db('cort_xai');
     const webhooksCollection = db.collection('webhooks');
 
-    const webhook: Webhook = {
+    const webhookData = {
       url,
       events,
       active: true,
@@ -117,8 +126,8 @@ export async function registerWebhook(url: string, events: string[], token: stri
       failureCount: 0,
     };
 
-    const result = await webhooksCollection.insertOne(webhook);
-    return { ...webhook, _id: result.insertedId.toString() };
+    const result = await webhooksCollection.insertOne(webhookData);
+    return { ...webhookData, _id: result.insertedId.toString() };
   } catch (error) {
     console.error('Error registering webhook:', error);
     return null;
@@ -141,7 +150,16 @@ export async function listWebhooks(token: string): Promise<Webhook[]> {
     const db = client.db('cort_xai');
     const webhooksCollection = db.collection('webhooks');
 
-    return (await webhooksCollection.find({}).toArray()) as Webhook[];
+    const webhookDocs = await webhooksCollection.find({}).toArray();
+    return webhookDocs.map(doc => ({
+      _id: doc._id,
+      url: doc.url,
+      events: doc.events,
+      active: doc.active,
+      createdAt: doc.createdAt,
+      lastTriggeredAt: doc.lastTriggeredAt,
+      failureCount: doc.failureCount,
+    }));
   } catch (error) {
     console.error('Error listing webhooks:', error);
     return [];

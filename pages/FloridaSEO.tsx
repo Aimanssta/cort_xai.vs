@@ -37,8 +37,8 @@ const FloridaSEO: React.FC = () => {
             { '@type': 'City', name: 'Jacksonville' },
             { '@type': 'City', name: 'Orlando' },
           ],
-          telephone: '+1-888-555-0123',
-          email: 'sales@cortxai.com',
+          telephone: '+1-321-534-0423',
+          email: 'daniel.theaioguy@gmail.com',
           url: 'https://cort-xai-vs-mon4.vercel.app',
           priceRange: '$$',
           aggregateRating: {

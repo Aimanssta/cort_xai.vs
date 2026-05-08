@@ -106,8 +106,8 @@ Perfect for restaurants, contractors, medical offices, and service businesses. N
 This is emerging as critical—AI is taking over search. Want to see how it works?`,
   'demo': `Great! I'd love to set up a demo for you. 
 - Click "Start Your Pilot" on the homepage to book a 30-min strategy call
-- Or email us at sales@cortxai.com
-- Or call +1 (888) 555-0123
+- Or email us at daniel.theaioguy@gmail.com
+- Or call 321-534-0423
 
 What would work best for you?`,
   'pricing details': `Our pricing depends on your business size and goals:
@@ -126,8 +126,8 @@ Each plan includes onboarding, monthly reporting, and strategy optimization. Wan
 
 Which service interests you most?`,
   'support': `We offer 24/7 support:
-- Email: daniel@cortxai.us
-- Phone: +1 (305) 426-7663
+- Email: daniel.theaioguy@gmail.com
+- Phone: 321-534-0423
 - Hours: Mon-Fri 9am-6pm EST (emergency support available)
 - Slack channel for Enterprise clients
 

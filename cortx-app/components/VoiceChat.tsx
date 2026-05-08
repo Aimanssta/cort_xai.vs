@@ -86,7 +86,7 @@ const VoiceChat: React.FC = () => {
               setVolumeLevel(Math.sqrt(sum / inputData.length) * 5); // Scale up a bit
 
               const pcmBlob = createBlob(inputData);
-              sessionPromise.then(session => {
+              sessionPromise.then((session: any) => {
                 session.sendRealtimeInput({ media: pcmBlob });
               });
             };
@@ -114,7 +114,7 @@ const VoiceChat: React.FC = () => {
             console.log('Gemini Live Closed');
             cleanupAudio();
           },
-          onerror: (err) => {
+          onerror: (err: any) => {
             console.error('Gemini Live Error', err);
             cleanupAudio();
           }

@@ -59,6 +59,15 @@ export interface BusinessProfile {
     linkedin?: boolean;
     twitter?: boolean;
   };
+  verified?: boolean;
+  category?: string;
+  phone?: string;
+  website?: string;
+  stats?: {
+    reviews?: number;
+    rating?: number;
+    views?: number;
+  };
 }
 
 export type ViewState = 'audit' | 'locations' | 'content' | 'performance' | 'keywords' | 'reviews' | 'promotions' | 'products' | 'services' | 'bookings' | 'qa' | 'gbp-dashboard' | 'post-scheduler' | 'advanced-strategy' | 'social-media' | 'website-analysis';
