@@ -15,12 +15,12 @@ const FloridaSEO: React.FC = () => {
         title="AI Sales Agents & Lead Generation Florida | Marketing Automation Services"
         description="Cort X AI helps Florida businesses generate qualified leads, automate sales, and grow revenue with AI-powered agents. Serving Miami, Tampa, Jacksonville, Orlando & across Florida."
         keywords="Florida marketing automation, Miami lead generation, Tampa sales agents, Florida B2B leads, Orlando marketing services, Boca Raton sales automation, Florida business growth, AI marketing Florida"
-        canonical="https://cort-xai-vs-mon4.vercel.app/#/florida"
+        canonical="https://www.cortxai.us/#/florida"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'Cort X AI - Florida',
-          image: 'https://cort-xai-vs-mon4.vercel.app/og-image.png',
+          image: 'https://www.cortxai.us/social-web.png',
           description: 'AI-powered sales agents and lead generation for Florida businesses',
           address: {
             '@type': 'PostalAddress',
@@ -39,7 +39,7 @@ const FloridaSEO: React.FC = () => {
           ],
           telephone: '+1-321-534-0423',
           email: 'daniel.theaioguy@gmail.com',
-          url: 'https://cort-xai-vs-mon4.vercel.app',
+          url: 'https://www.cortxai.us',
           priceRange: '$$',
           aggregateRating: {
             '@type': 'AggregateRating',
