@@ -12,7 +12,7 @@ const LocalAIO: React.FC = () => {
       <SEO 
         title="AI Local SEO Optimization & Google Maps Ranking | USA & Florida"
         description="AI-powered local SEO for USA businesses. Dominate Google Maps, local search, and business profiles with AI-optimized local AIO signals, automated review management, and local business optimization for Florida and USA markets."
-        keywords="local SEO optimization, Google Maps ranking, local business marketing, AI local SEO, Google Business Profile optimization, local search optimization, business citations, local search ranking, Florida local SEO, USA local marketing"
+        keywords="local SEO optimization, Google Maps ranking, local business marketing, AI local SEO, Google Business Profile optimization, Google local SEO services, Google Business Profile audit, local citation building services, local search optimization, business citations, local search ranking, Florida local SEO, USA local marketing, how to improve my Google business ranking, why is my Google Business Profile not showing up"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',

@@ -9,6 +9,7 @@ const LocalSEO: React.FC = () => {
       <SEO 
         title="AI Powered Local SEO Services"
         description="Dominate local search results. AI-optimized Google Business Profiles, automated review management, and local citations."
+        keywords="Google Business Profile management services, GBP optimization service, Google Maps ranking service, Google local SEO services, GMB review management tools, Google Business Profile audit, local citation building services, How to rank in 3-pack Google Maps, Miami SEO agency, Tampa SEO services, Orlando local SEO, Florida local marketing, local search ranking"
       />
 
       <div className="bg-slate-950 pt-10">

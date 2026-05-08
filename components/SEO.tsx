@@ -15,7 +15,7 @@ const SEO: React.FC<SEOProps> = ({
   title, 
   description, 
   canonical, 
-  keywords = 'AI sales agents, lead generation, local SEO, marketing automation, Florida',
+  keywords = 'AI sales agents, lead generation software, marketing automation USA, Google Business Profile management services, Google Maps ranking service, GBP optimization service, Google local SEO services, affordable SEO packages, small business SEO services, enterprise SEO strategy, full-service digital marketing agency, local business growth marketing, voice search optimization, conversational search SEO',
   image = 'https://www.cortxai.us/social-web.png',
   schema,
   ogType = 'website'

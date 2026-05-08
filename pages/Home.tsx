@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       <SEO 
         title="AI Sales Agents & Lead Generation | USA & Florida Marketing Automation"
         description="Cort X AI provides AI-powered sales agents, B2B lead generation, and local SEO optimization for USA & Florida businesses. Automate sales, generate qualified leads, and dominate your market with intelligent automation."
-        keywords="AI sales agents, lead generation software, marketing automation USA, Florida marketing services, B2B lead generation, AI customer acquisition, sales automation, local SEO optimization, business growth automation"
+        keywords="AI sales agents, lead generation software, marketing automation USA, local SEO services, Google Business Profile optimization, full-service digital marketing agency, affordable SEO packages, enterprise SEO strategy, increase organic traffic, first page Google ranking services, keyword research and content strategy, white hat backlink building, ROI-focused digital marketing, local business growth marketing, how much do SEO services cost per month"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',

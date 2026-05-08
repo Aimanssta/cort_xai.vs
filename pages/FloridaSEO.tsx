@@ -14,7 +14,7 @@ const FloridaSEO: React.FC = () => {
       <SEO 
         title="AI Sales Agents & Lead Generation Florida | Marketing Automation Services"
         description="Cort X AI helps Florida businesses generate qualified leads, automate sales, and grow revenue with AI-powered agents. Serving Miami, Tampa, Jacksonville, Orlando & across Florida."
-        keywords="Florida marketing automation, Miami lead generation, Tampa sales agents, Florida B2B leads, Orlando marketing services, Boca Raton sales automation, Florida business growth, AI marketing Florida"
+        keywords="Florida marketing automation, Miami lead generation, Tampa sales agents, Florida B2B leads, Orlando marketing services, Boca Raton sales automation, Florida business growth, AI marketing Florida, Miami SEO agency, Google Business Profile management services, Google Maps ranking service, local citation building services"
         canonical="https://www.cortxai.us/#/florida"
         schema={{
           '@context': 'https://schema.org',
