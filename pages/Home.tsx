@@ -26,9 +26,9 @@ const Home: React.FC = () => {
   return (
     <>
       <SEO 
-        title="AI Sales Agents & Lead Generation | USA & Florida Marketing Automation"
-        description="Cort X AI provides AI-powered sales agents, B2B lead generation, and local SEO optimization for USA & Florida businesses. Automate sales, generate qualified leads, and dominate your market with intelligent automation."
-        keywords="AI sales agents, lead generation software, marketing automation USA, local SEO services, Google Business Profile optimization, full-service digital marketing agency, affordable SEO packages, enterprise SEO strategy, increase organic traffic, first page Google ranking services, keyword research and content strategy, white hat backlink building, ROI-focused digital marketing, local business growth marketing, how much do SEO services cost per month"
+        title="Traffic, Leads & Organic Growth | USA & Florida Marketing Intelligence"
+        description="Cort X AI helps businesses generate more traffic and leads through organic marketing, SEO, AI optimization, reputation management, CRM systems, and AI-powered growth tools. We build scalable funnels that help companies expand, convert, and grow toward multi-million dollar success."
+        keywords="organic marketing, SEO services, AI optimization, reputation management, CRM tools, lead generation, traffic generation, local SEO services, business growth automation, marketing automation USA, Google Business Profile optimization, affordable SEO packages, enterprise SEO strategy"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
           },
           operatingSystem: 'Web-based',
           areaServed: ['US', 'US-FL'],
-          keywords: 'AI sales agents, lead generation, marketing automation, sales automation'
+          keywords: 'lead generation, traffic generation, organic marketing, business growth automation, marketing automation, reputation management, CRM tools'
         }}
       />
 
@@ -79,18 +79,18 @@ const Home: React.FC = () => {
           </h1>
           
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-12 animate-slide-up leading-relaxed" style={{animationDelay: '0.1s'}}>
-            Cort X AI connects your sales team, lead generation, and local market presence into one <span className="text-white font-semibold">intelligent ecosystem</span>. 
-            Deploy agents that never sleep and tools that never miss a lead.
+            Cort X AI connects your marketing, lead generation, and local market presence into one <span className="text-white font-semibold">intelligent growth ecosystem</span>. 
+            Generate more traffic, capture better leads, and convert them faster.
           </p>
           
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-5 animate-slide-up" style={{animationDelay: '0.2s'}}>
             <Button to="/contact" variant="primary" className="text-lg px-10 py-4 shadow-xl shadow-cort-600/20">
-              Start Your Pilot
+              Start Your Growth Plan
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button to="/solutions/sales-agents" variant="outline" className="text-lg px-10 py-4 bg-slate-950/50 backdrop-blur-sm">
-              View Solutions
+              View Growth Services
             </Button>
           </div>
 
@@ -351,10 +351,10 @@ const Home: React.FC = () => {
             <div className="space-y-8 animate-slide-up">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  Real-Time Agent Activity
+                  Real-Time Growth Activity
                 </h2>
                 <p className="text-slate-400 text-lg leading-relaxed">
-                  Watch your AI agents work in real-time. Every deal booked, every email sent, every lead qualified—tracked live on your dashboard.
+                  Watch your growth workflows run in real-time. Every campaign optimized, every lead engaged, every conversion tracked live on your dashboard.
                 </p>
               </div>
 
@@ -430,9 +430,9 @@ const Home: React.FC = () => {
               <div className="h-14 w-14 bg-slate-900/50 border border-slate-700/50 rounded-xl flex items-center justify-center mb-8 group-hover:border-cort-500/50 group-hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.3)] transition-all duration-500">
                 <Bot className="h-7 w-7 text-cort-400 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300 ease-out" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Sales Team & <br/> AI Agents</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Lead Growth <br/> Systems</h3>
               <p className="text-slate-400 mb-8 leading-relaxed">
-                Deploy 24/7 SDR agents that engage, qualify, and book meetings. Reduce overhead while increasing touchpoints by 1000%.
+                Deploy 24/7 growth workflows that engage, qualify, and book meetings. Reduce overhead while increasing high-intent touchpoints and conversion velocity.
               </p>
               <Button to="/solutions/sales-agents" variant="outline" className="w-full group-hover:bg-cort-600 group-hover:border-cort-600 group-hover:text-white transition-all duration-300">Learn More</Button>
             </div>
