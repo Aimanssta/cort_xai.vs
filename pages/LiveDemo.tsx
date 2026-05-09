@@ -16,6 +16,35 @@ const LiveDemo: React.FC = () => {
           allow="fullscreen"
         ></iframe>
       </div>
+
+      {/* Legal Links for Cloud Marketplace */}
+      <div className="mt-8 pt-8 border-t border-slate-800">
+        <p className="text-slate-500 text-sm mb-4">GBP.cortxai.us Legal & Compliance</p>
+        <div className="flex flex-wrap gap-6">
+          <a 
+            href="https://gbp.cortxai.us/privacy-policy" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-cort-400 hover:text-cort-300 transition-colors text-sm font-medium"
+          >
+            Privacy Policy
+          </a>
+          <a 
+            href="https://gbp.cortxai.us/terms-of-service" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-cort-400 hover:text-cort-300 transition-colors text-sm font-medium"
+          >
+            Terms of Service
+          </a>
+          <a 
+            href="https://www.cortxai.us/contact" 
+            className="text-cort-400 hover:text-cort-300 transition-colors text-sm font-medium"
+          >
+            Support
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
