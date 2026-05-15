@@ -85,7 +85,7 @@ const Home: React.FC = () => {
           
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-5 animate-slide-up" style={{animationDelay: '0.2s'}}>
-            <Button to="/contact" variant="primary" className="text-lg px-10 py-4 shadow-xl shadow-cort-600/20">
+            <Button to="/live-demo" variant="primary" className="text-lg px-10 py-4 shadow-xl shadow-cort-600/20">
               Start Your Growth Plan
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -434,7 +434,7 @@ const Home: React.FC = () => {
               <p className="text-slate-400 mb-8 leading-relaxed">
                 Deploy 24/7 growth workflows that engage, qualify, and book meetings. Reduce overhead while increasing high-intent touchpoints and conversion velocity.
               </p>
-              <Button to="/solutions/sales-agents" variant="outline" className="w-full group-hover:bg-cort-600 group-hover:border-cort-600 group-hover:text-white transition-all duration-300">Learn More</Button>
+              <Button to="/live-demo" variant="outline" className="w-full group-hover:bg-cort-600 group-hover:border-cort-600 group-hover:text-white transition-all duration-300">Learn More</Button>
             </div>
 
             {/* Pillar 2 */}
@@ -448,7 +448,7 @@ const Home: React.FC = () => {
               <p className="text-slate-400 mb-8 leading-relaxed">
                 Proprietary tools tailored to your niche. We scrape, enrich, and nurture leads automatically, feeding your pipeline high-intent prospects.
               </p>
-              <Button to="/solutions/lead-gen" variant="outline" className="w-full group-hover:bg-purple-600 group-hover:border-purple-600 group-hover:text-white transition-all duration-300">Explore Tools</Button>
+              <Button to="/live-demo" variant="outline" className="w-full group-hover:bg-purple-600 group-hover:border-purple-600 group-hover:text-white transition-all duration-300">Explore Tools</Button>
             </div>
 
             {/* Pillar 3 */}
@@ -462,7 +462,7 @@ const Home: React.FC = () => {
               <p className="text-slate-400 mb-8 leading-relaxed">
                 Own your backyard. Our AI optimizes your presence for AI Search Engines (ChatGPT, Gemini) and Google Maps to rank you #1.
               </p>
-              <Button to="/solutions/local-aio" variant="outline" className="w-full group-hover:bg-emerald-600 group-hover:border-emerald-600 group-hover:text-white transition-all duration-300">Rank Higher</Button>
+              <Button to="/live-demo" variant="outline" className="w-full group-hover:bg-emerald-600 group-hover:border-emerald-600 group-hover:text-white transition-all duration-300">Rank Higher</Button>
             </div>
           </div>
         </div>
@@ -554,7 +554,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
 
-              <Button to="/contact" variant="primary" className="text-lg px-8 py-4 w-full justify-center shadow-xl shadow-emerald-600/20">
+              <Button to="/live-demo" variant="primary" className="text-lg px-8 py-4 w-full justify-center shadow-xl shadow-emerald-600/20">
                 Get Your Custom Strategy
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -718,10 +718,10 @@ const Home: React.FC = () => {
               Don't let manual processes hold you back. Join top USA companies leveraging our autonomous agents and AIO tools.
             </p>
             <div className="relative z-10 flex flex-col sm:flex-row justify-center gap-5">
-              <Button to="/contact" className="bg-white text-cort-950 hover:bg-indigo-50 px-10 py-5 text-lg font-bold shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] hover:scale-105 transition-all duration-300">
+              <Button to="/live-demo" className="bg-white text-cort-950 hover:bg-indigo-50 px-10 py-5 text-lg font-bold shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] hover:scale-105 transition-all duration-300">
                 Get Your Custom Strategy
               </Button>
-              <Button to="/contact" variant="outline" className="border-slate-600 text-white hover:bg-slate-800/80 px-10 py-5 text-lg font-semibold backdrop-blur-md">
+              <Button to="/live-demo" variant="outline" className="border-slate-600 text-white hover:bg-slate-800/80 px-10 py-5 text-lg font-semibold backdrop-blur-md">
                 Book a Demo
               </Button>
             </div>

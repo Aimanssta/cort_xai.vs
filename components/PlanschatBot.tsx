@@ -20,7 +20,7 @@ const plansData = {
       'Real-time agent performance analytics',
     ],
     pricing: 'Custom - Starting at $2,000/month',
-    cta: '/solutions/sales-agents',
+    cta: '/live-demo',
   },
   'lead generation': {
     title: 'Lead Generation Suite',
@@ -33,7 +33,7 @@ const plansData = {
       'CRM integration',
     ],
     pricing: 'Custom - Starting at $1,500/month',
-    cta: '/solutions/lead-gen',
+    cta: '/live-demo',
   },
   'local seo': {
     title: 'Local SEO Services',
@@ -46,20 +46,20 @@ const plansData = {
       'Monthly rank tracking & reporting',
     ],
     pricing: 'Custom - Starting at $1,200/month',
-    cta: '/solutions/local-seo',
+    cta: '/live-demo',
   },
   'local aio': {
     title: 'Local AIO (AI Optimization)',
     description: 'Rank in AI search engines (Google Generative Engine, ChatGPT, Gemini).',
     features: [
-      'Entity authority building',
-      'AI Snapshot optimization',
-      'Structured data implementation',
-      'Authority site linking strategy',
-      'Competitive AI visibility analysis',
+      'Elite Home Services Case Study: 300% Call Increase',
+      'AI Snapshot & Map Pack dominance',
+      'Neighborhood-level ranking heatmaps',
+      'Listing Audit: 30+ major directories',
+      'Semrush-grade local intelligence',
     ],
     pricing: 'Custom - Starting at $1,500/month',
-    cta: '/solutions/local-aio',
+    cta: '/live-demo',
   },
 };
 
@@ -104,12 +104,18 @@ Perfect for restaurants, contractors, medical offices, and service businesses. N
 - AI visibility analysis
 
 This is emerging as critical—AI is taking over search. Want to see how it works?`,
-  'demo': `Great! I'd love to set up a demo for you. 
-- Click "Start Your Pilot" on the homepage to book a 30-min strategy call
-- Or email us at daniel.theaioguy@gmail.com
-- Or call 321-534-0423
+  'demo': `Great! You can experience our core AI tool right now. 
+- **View Case Study**: See how we scaled Elite Home Services by 300%.
+- **Live Demo**: Interact with our GBP dashboard in real-time.
+- **Get Started**: Click the "Live Demo" button in the menu or go to /#/live-demo.
 
-What would work best for you?`,
+Would you like me to walk you through the results of our latest case study?`,
+  'case study': `Our latest success story is **Elite Home Services**:
+📈 **Results**: Tripled inbound calls (from 15 to 45 monthly) in 90 days.
+🛠️ **Tool**: GBP.CORTXAI.US (our core AI optimization engine).
+📍 **Impact**: Dominated the Dallas service area and achieved a 4.9/5 rating.
+
+You can see the full breakdown and the tool itself on our **Live Demo** page. Ready to see it?`,
   'pricing details': `Our pricing depends on your business size and goals:
 - **Small Business**: $1,200-2,000/month
 - **Mid-Market**: $2,500-5,000/month
@@ -126,12 +132,26 @@ Each plan includes onboarding, monthly reporting, and strategy optimization. Wan
 
 Which service interests you most?`,
   'support': `We offer 24/7 support:
-- Email: daniel.theaioguy@gmail.com
+- Email: daniel@cortxai.us
 - Phone: 321-534-0423
 - Hours: Mon-Fri 9am-6pm EST (emergency support available)
 - Slack channel for Enterprise clients
 
 How can we help you today?`,
+  'how it works': `It's simple:
+1. **Submit Inquiry**: Use our contact form or live demo.
+2. **Instant Notification**: Our team (Daniel) gets an instant email alert.
+3. **Lead Storage**: Your info is securely stored in our Leads Manager for follow-up.
+4. **Fast Response**: We typically reach out within 2 hours to discuss your custom AI strategy.
+
+Ready to submit your first inquiry?`,
+  'data security': `We take security seriously:
+🔒 **US-Based Infrastructure**: Data is stored on secure US servers.
+🔒 **Encryption**: All submissions are encrypted in transit and at rest.
+🔒 **CRM Sync**: Optionally syncs with HubSpot for professional management.
+🔒 **Privacy First**: We never sell your data to third parties.
+
+Any other security questions?`,
   'hello': `👋 Hi there! I'm the Cort X AI assistant. I'm here to help you learn about our plans and services. You can ask me about:
 - **Sales Agents** - AI phone calling & outreach
 - **Lead Generation** - Smart prospect capture
@@ -144,17 +164,16 @@ What would you like to know?`,
   'help': `I can help you with:
 📞 **Sales Agents** - Autonomous outreach & calling
 📊 **Lead Generation** - Capture & nurture prospects
-🗺️ **Local SEO** - Google Maps & local rankings
-🤖 **Local AIO** - AI search engine optimization
+🗺️ **Local SEO & AIO** - Dominate Google Maps & AI search
+📈 **Case Studies** - See how we tripled calls for home services
 
-Or ask about pricing, features, and how to get started!`,
+Try asking about our **Elite Home Services** results or how to access the **Live Demo**!`,
   'what can you do': `I can explain:
-✅ Our four main services and how they work
-✅ Pricing and what's included
-✅ Who each service is best for
-✅ How to schedule a demo or consultation
-✅ Integration capabilities
-✅ Performance guarantees
+✅ How we help businesses scale calls via AI
+✅ Our latest **Case Studies** (like Elite Home Services)
+✅ Accessing our **Live Demo** instance
+✅ Custom pricing and onboarding
+✅ Integration with your current CRM
 
 Just ask! What interests you?`,
 };

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Mail, MapPin, Phone, ArrowRight, Activity } from 'lucide-react';
-import AICallAgent from './AICallAgent';
 import Logo from './Logo';
 import PageTopBackdrop from './PageTopBackdrop';
 import Analytics from './Analytics';
@@ -33,9 +32,6 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans selection:bg-cort-500/30">
       <Analytics />
-      {/* AI Call Agent Widget */}
-      <AICallAgent />
-
       {/* Sticky Navigation */}
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -68,7 +64,7 @@ const Layout: React.FC = () => {
                   )}
                 </Link>
               ))}
-                  <Link to="/contact" className="bg-cort-600 hover:bg-cort-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-cort-600/20 flex items-center gap-2">
+                  <Link to="/live-demo" className="bg-cort-600 hover:bg-cort-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-cort-600/20 flex items-center gap-2">
                     Book Demo <ArrowRight className="h-4 w-4" />
                   </Link>
             </div>
@@ -105,7 +101,7 @@ const Layout: React.FC = () => {
               ))}
               <div className="pt-4">
                  <Link
-                  to="/contact"
+                  to="/live-demo"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full text-center bg-cort-600 text-white px-6 py-4 rounded-xl font-bold text-lg shadow-lg shadow-cort-600/20"
                 >
@@ -178,7 +174,7 @@ const Layout: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-cort-500 shrink-0" />
-                  <a href="mailto:daniel.theaioguy@gmail.com" className="hover:text-white transition-colors">daniel.theaioguy@gmail.com</a>
+                  <a href="mailto:daniel@cortxai.us" className="hover:text-white transition-colors">daniel@cortxai.us</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-cort-500 shrink-0" />

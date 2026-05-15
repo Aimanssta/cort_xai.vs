@@ -27,7 +27,7 @@ const LocalSEO: React.FC = () => {
                 46% of all Google searches have local intent. Cort X AI ensures your business appears in the "Map Pack" for every relevant search in your service area using automated optimization.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button to="/contact" variant="primary">Get Free SEO Audit</Button>
+                <Button to="/live-demo" variant="primary">Get Free SEO Audit</Button>
               </div>
             </div>
             <div className="relative">

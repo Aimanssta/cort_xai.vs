@@ -61,7 +61,7 @@ const LocalAIO: React.FC = () => {
                 Over 50% of discovery now happens via AI and Maps. Cort X AI ensures your business appears in the "Map Pack" and AI overviews (ChatGPT, Gemini, SGE) for every relevant search in your service area.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button to="/contact" variant="primary">Get Free AIO Audit</Button>
+                <Button to="/live-demo" variant="primary">Get Free AIO Audit</Button>
               </div>
             </div>
             <div className="relative">
@@ -143,7 +143,7 @@ const LocalAIO: React.FC = () => {
                 </ul>
 
                 <div className="mt-4">
-                  <Button to="/contact" variant="primary">Request a GEO Audit</Button>
+                  <Button to="/live-demo" variant="primary">Request a GEO Audit</Button>
                 </div>
               </div>
 
@@ -219,7 +219,7 @@ const LocalAIO: React.FC = () => {
                   </div>
                 </div>
 
-                <Button to="/contact" variant="primary" className="mt-8">
+                <Button to="/live-demo" variant="primary" className="mt-8">
                   Learn About Our Compliance Standards
                 </Button>
               </div>

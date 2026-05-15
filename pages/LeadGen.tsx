@@ -242,7 +242,43 @@ const LeadGen: React.FC = () => {
             </div>
           </div>
 
+          {/* GBP Optimization Link Section */}
+          <div className="mb-24 relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-indigo-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
+            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="bg-emerald-500/10 p-2 rounded-lg">
+                    <TrendingUp className="h-6 w-6 text-emerald-400" />
+                  </div>
+                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Local Dominance Engine</span>
+                </div>
+                <h2 className="text-3xl font-bold text-white mb-4">Automate Your Google Business Profile</h2>
+                <p className="text-slate-400 text-lg max-w-2xl">
+                  Generating leads is only half the battle. Our core AI tool, <span className="text-white font-semibold">GBP.CORTXAI.US</span>, ensures your local presence is 100% optimized to turn searchers into callers while you sleep.
+                </p>
+                <div className="flex gap-6 mt-8">
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-bold text-white">100%</span>
+                    <span className="text-[10px] text-slate-500 uppercase font-bold">Auto-Pilot</span>
+                  </div>
+                  <div className="w-px h-10 bg-slate-800"></div>
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-bold text-white">24/7</span>
+                    <span className="text-[10px] text-slate-500 uppercase font-bold">Review Mgmt</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <Button to="/live-demo" variant="primary" className="whitespace-nowrap px-8 py-4 text-base">
+                  Launch GBP AI Optimizer <Play className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+
           {/* CTA Section */}
+
           <div className="bg-gradient-to-br from-purple-900/50 to-slate-900 border border-purple-500/30 rounded-3xl p-12 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <h3 className="text-2xl font-bold text-white mb-2">Need a Sample List?</h3>
@@ -251,7 +287,7 @@ const LeadGen: React.FC = () => {
               </p>
             </div>
             <div className="flex gap-4">
-              <Button to="/contact" variant="primary">Request Data Sample <Download className="ml-2 h-4 w-4"/></Button>
+              <Button to="/live-demo" variant="primary">Request Data Sample <Download className="ml-2 h-4 w-4"/></Button>
             </div>
           </div>
 

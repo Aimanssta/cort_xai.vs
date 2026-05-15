@@ -38,7 +38,7 @@ const FloridaSEO: React.FC = () => {
             { '@type': 'City', name: 'Orlando' },
           ],
           telephone: '+1-321-534-0423',
-          email: 'daniel.theaioguy@gmail.com',
+          email: 'daniel@cortxai.us',
           url: 'https://www.cortxai.us',
           priceRange: '$$',
           aggregateRating: {
@@ -73,11 +73,11 @@ const FloridaSEO: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button to="/contact" variant="primary" className="text-lg px-8 py-3">
+              <Button to="/live-demo" variant="primary" className="text-lg px-8 py-3">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button to="/contact" variant="outline" className="text-lg px-8 py-3">
+              <Button to="/live-demo" variant="outline" className="text-lg px-8 py-3">
                 Schedule Demo
               </Button>
             </div>
@@ -182,7 +182,7 @@ const FloridaSEO: React.FC = () => {
               <p className="text-lg text-slate-300 mb-8">
                 Join hundreds of successful Florida companies using Cort X AI to automate sales, generate leads, and increase revenue.
               </p>
-              <Button to="/contact" variant="primary" className="text-lg px-10 py-4">
+              <Button to="/live-demo" variant="primary" className="text-lg px-10 py-4">
                 Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
