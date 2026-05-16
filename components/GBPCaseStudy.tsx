@@ -100,7 +100,7 @@ const GBPCaseStudy: React.FC = () => {
                   <p className="text-sm text-slate-400 italic">
                     "Since integrating GBP.cortxai.us, we've stopped worrying about GMB updates. The AI handles our posts and reviews, and the heatmap tool showed us exactly where our competitors were weak."
                   </p>
-                  <p className="mt-4 text-xs font-bold text-white">— Michael R., CEO Elite Home Services</p>
+                  <p className="mt-4 text-xs font-bold text-white">— George Borges, CEO of Borges Roofing</p>
                 </div>
               </div>
             </div>

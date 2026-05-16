@@ -3,7 +3,6 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import FloridaSEO from './pages/FloridaSEO';
-import SalesAI from './pages/SalesAI';
 import LeadGen from './pages/LeadGen';
 import LocalAIO from './pages/LocalAIO';
 import Contact from './pages/Contact';
@@ -29,7 +28,6 @@ const App: React.FC = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="florida" element={<FloridaSEO />} />
-          <Route path="solutions/sales-agents" element={<SalesAI />} />
           <Route path="solutions/lead-gen" element={<LeadGen />} />
           <Route path="solutions/local-aio" element={<LocalAIO />} />
           <Route path="live-demo" element={<LiveDemo />} />

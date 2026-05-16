@@ -140,6 +140,19 @@ const LiveDemo: React.FC = () => {
         </div>
       </section>
 
+      {/* 4.5 Heavy Bottom Funnel CTA */}
+      <section className="py-24 px-6 bg-emerald-900/10 border-t border-emerald-900/30 text-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="max-w-3xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Your Competitors Are Optimizing Daily.</h2>
+          <p className="text-xl text-emerald-100/80 mb-10">Stop losing high-intent traffic to other businesses in your area. Let AI automate your growth and secure the #1 Map Pack spot.</p>
+          <a href="https://gbp.cortxai.us/register" target="_blank" rel="noopener noreferrer" className="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xl font-extrabold px-12 py-5 rounded-full shadow-[0_0_40px_-10px_rgba(16,185,129,0.8)] transition-all transform hover:scale-105">
+            Start Optimizing My Profile
+          </a>
+          <p className="mt-6 text-sm text-emerald-500/60 font-semibold uppercase tracking-widest">Connect Your GBP Instantly</p>
+        </div>
+      </section>
+
       {/* 5. Legal & Footer Compliance Section */}
       <section className="py-16 border-t border-slate-900 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">

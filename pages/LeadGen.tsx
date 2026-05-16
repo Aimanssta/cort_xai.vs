@@ -29,265 +29,114 @@ const LeadGen: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-3xl mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Precision Lead Gen. <br />
-              <span className="gradient-text">Zero Waste.</span>
+              Inbound Lead Gen. <br />
+              <span className="text-emerald-500">Powered by Local AI.</span>
             </h1>
             <p className="text-xl text-slate-400">
-              Generic lists are dead. Cort X AI builds custom scraping and enrichment pipelines tailored to your specific Ideal Customer Profile (ICP).
+              Stop buying dead lead lists. GBP Cortx turns your Google Business Profile into an automated, inbound lead generation engine that captures high-intent customers right when they search.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {/* Tool 1 */}
-            <div className="glass-card p-8 rounded-2xl border-t-4 border-cort-500 hover:-translate-y-2 transition-transform duration-300">
-              <Database className="h-10 w-10 text-cort-400 mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">Deep Data Scraping</h3>
-              <p className="text-slate-400 mb-4">
-                We go beyond LinkedIn. Our custom scrapers access industry-specific directories, permit filings, and local databases to find leads your competitors miss.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Verified Emails & Direct Dials</li>
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Technology Stack Detection</li>
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Hiring Signal Triggers</li>
-              </ul>
-            </div>
-
-            {/* Tool 2 */}
-            <div className="glass-card p-8 rounded-2xl border-t-4 border-purple-500 hover:-translate-y-2 transition-transform duration-300">
-              <Filter className="h-10 w-10 text-purple-400 mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">AI Intent Scoring</h3>
-              <p className="text-slate-400 mb-4">
-                Stop calling cold leads. Our AI analyzes behavioral data to score leads based on their likelihood to buy <i>right now</i>.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Website Visitor Identification</li>
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Content Engagement Tracking</li>
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Lookalike Modeling</li>
-              </ul>
-            </div>
-
-            {/* Tool 3 */}
-            <div className="glass-card p-8 rounded-2xl border-t-4 border-pink-500 hover:-translate-y-2 transition-transform duration-300">
-              <Layers className="h-10 w-10 text-pink-400 mb-6" />
-              <h3 className="text-2xl font-bold text-white mb-4">Automated Nurture</h3>
-              <p className="text-slate-400 mb-4">
-                Multi-channel sequences that adapt based on prospect behavior. If they open an email but don't click, the AI sends a specific SMS follow-up.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Dynamic Content Generation</li>
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> A/B Testing on Autopilot</li>
-                <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400" /> Cross-Channel Sync</li>
-              </ul>
-            </div>
+          {/* Features as Blog Cards */}
+          <div className="grid md:grid-cols-3 gap-8 mb-24">
+            {[
+              {
+                title: "Review Automation Engine",
+                category: "Social Proof Leads",
+                date: "Feature Spotlight",
+                excerpt: "Automatically request and reply to reviews using AI. A 5-star profile generates 3x more inbound calls than a 4-star profile. Turn past customers into a lead-gen magnet.",
+                image: "/blog-1.png"
+              },
+              {
+                title: "AI Local Post Generator",
+                category: "Engagement Leads",
+                date: "Feature Spotlight",
+                excerpt: "Our AI analyzes local search trends and automatically publishes high-converting posts to your GBP, capturing searchers who are looking for immediate services.",
+                image: "/blog-2.png"
+              },
+              {
+                title: "Local Citation Syncing",
+                category: "Authority Leads",
+                date: "Feature Spotlight",
+                excerpt: "We build and sync your business data across 50+ local directories. This massive boost in domain authority pushes your Maps ranking to #1, driving organic traffic.",
+                image: "/blog-3.png"
+              },
+              {
+                title: "Mastering Local Dominance with AI",
+                category: "Local SEO",
+                date: "Oct 12, 2024",
+                excerpt: "Discover how AI-driven local SEO strategies are reshaping how businesses capture high-intent customers in their immediate area, making traditional keyword stuffing obsolete.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+              },
+              {
+                title: "How GBP Cortx Secures the #1 Map Pack Spot",
+                category: "GBP Optimization",
+                date: "Oct 28, 2024",
+                excerpt: "Google Business Profile optimization requires continuous engagement. See how GBP Cortx uses automated review management and localized signaling to dominate Google Maps.",
+                image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=800&auto=format&fit=crop"
+              },
+              {
+                title: "The Future of Search: Local AIO",
+                category: "AI Marketing",
+                date: "Nov 05, 2024",
+                excerpt: "With Google's SGE and ChatGPT search, being recommended by AI is critical. Learn how our AIO framework ensures your business is the primary answer for AI models.",
+                image: "https://images.unsplash.com/photo-1620712949843-80d5909240bc?q=80&w=800&auto=format&fit=crop"
+              }
+            ].map((blog, idx) => (
+              <div key={idx} className="glass-card rounded-2xl overflow-hidden group hover:border-emerald-500/50 transition-all duration-300 flex flex-col h-full bg-slate-900/40 border border-slate-800">
+                <div className="h-48 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors z-10"></div>
+                  <img src={blog.image} alt={blog.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full shadow-lg">{blog.category}</span>
+                  </div>
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <p className="text-slate-500 text-sm mb-3 font-mono">{blog.date}</p>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">{blog.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">{blog.excerpt}</p>
+                  <a href="/live-demo" className="text-emerald-400 text-sm font-bold flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    Run a free local ranking audit <Play className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* How It Works */}
           <div className="mb-24">
-            <h2 className="text-3xl font-bold text-white mb-10 text-center">Your Custom Data Pipeline</h2>
+            <h2 className="text-3xl font-bold text-white mb-10 text-center">Your Inbound Traffic Pipeline</h2>
             <div className="relative">
               {/* Connector Line */}
               <div className="absolute top-1/2 left-0 w-full h-1 bg-slate-800 -z-10 hidden md:block"></div>
               
               <div className="grid md:grid-cols-4 gap-6 text-center">
                 {[
-                  { step: '01', title: 'Define ICP', desc: 'We map your perfect customer parameters.' },
-                  { step: '02', title: 'Scrape & Verify', desc: 'AI gathers and cleans contact data.' },
-                  { step: '03', title: 'Enrich', desc: 'Add financial, tech, and social data points.' },
-                  { step: '04', title: 'Deliver', desc: 'Sync directly to your CRM via API.' },
+                  { step: '01', title: 'Connect GBP', desc: 'Securely link your Google Business Profile.' },
+                  { step: '02', title: 'AI Analysis', desc: 'We scan your local competitors and keyword gaps.' },
+                  { step: '03', title: 'Auto-Optimize', desc: 'AI generates posts, replies to reviews, and syncs data.' },
+                  { step: '04', title: 'Capture Calls', desc: 'Rank #1 and receive high-intent inbound calls.' },
                 ].map((item, i) => (
                   <div key={i} className="bg-slate-900 border border-slate-700 p-6 rounded-xl">
-                    <div className="text-4xl font-black text-slate-800 mb-4">{item.step}</div>
-                    <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
-                    <p className="text-sm text-slate-400">{item.desc}</p>
+                     <div className="text-4xl font-black text-slate-800 mb-4">{item.step}</div>
+                     <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                     <p className="text-sm text-slate-400">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Data Quality & Compliance Section */}
-          <div className="mb-24 bg-slate-900/30 border border-slate-800 rounded-2xl p-8 md:p-10">
-             <div className="grid md:grid-cols-2 gap-12">
-                <div>
-                   <h3 className="text-2xl font-bold text-white mb-4">Data Compliance & Ethics</h3>
-                   <p className="text-slate-400 mb-6">
-                      In the US regulatory environment, data safety is paramount. Cort X AI adheres to strict compliance standards to ensure your outreach is safe, legal, and effective.
-                   </p>
-                   <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                         <FileCheck className="h-6 w-6 text-emerald-400 mt-1" />
-                         <div>
-                            <h4 className="text-white font-bold">CCPA & CAN-SPAM Compliant</h4>
-                            <p className="text-sm text-slate-500">All data is ethically sourced from public records and partners. Opt-out mechanisms are built-in.</p>
-                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                         <Smartphone className="h-6 w-6 text-emerald-400 mt-1" />
-                         <div>
-                            <h4 className="text-white font-bold">DNC Registry Scrubbing</h4>
-                            <p className="text-sm text-slate-500">We automatically filter out phone numbers on the Federal Do Not Call list to protect your brand.</p>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-                <div>
-                   <h3 className="text-2xl font-bold text-white mb-4">Enrichment Data Points</h3>
-                   <p className="text-slate-400 mb-6">
-                      We provide up to 50 data points per lead to power your AI personalization.
-                   </p>
-                   <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-slate-950 p-3 rounded border border-slate-800 flex items-center gap-2">
-                         <Check className="h-4 w-4 text-cort-400" />
-                         <span className="text-sm text-white">Annual Revenue</span>
-                      </div>
-                      <div className="bg-slate-950 p-3 rounded border border-slate-800 flex items-center gap-2">
-                         <Check className="h-4 w-4 text-cort-400" />
-                         <span className="text-sm text-white">Employee Count</span>
-                      </div>
-                      <div className="bg-slate-950 p-3 rounded border border-slate-800 flex items-center gap-2">
-                         <Code className="h-4 w-4 text-cort-400" />
-                         <span className="text-sm text-white">Tech Stack Used</span>
-                      </div>
-                      <div className="bg-slate-950 p-3 rounded border border-slate-800 flex items-center gap-2">
-                         <Check className="h-4 w-4 text-cort-400" />
-                         <span className="text-sm text-white">Recent Funding</span>
-                      </div>
-                      <div className="bg-slate-950 p-3 rounded border border-slate-800 flex items-center gap-2">
-                         <Check className="h-4 w-4 text-cort-400" />
-                         <span className="text-sm text-white">Direct Mobile #</span>
-                      </div>
-                      <div className="bg-slate-950 p-3 rounded border border-slate-800 flex items-center gap-2">
-                         <Check className="h-4 w-4 text-cort-400" />
-                         <span className="text-sm text-white">LinkedIn Profile</span>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-
-          {/* Case Study Section */}
-          <div className="mb-24">
-            <div className="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Video Section */}
-                <div className="relative bg-slate-800 group cursor-pointer overflow-hidden flex items-center justify-center p-8 lg:p-4">
-                  <div className="relative bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl aspect-[9/16] w-full max-w-xs flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"></div>
-                    
-                    {/* Play Button / Video Placeholder */}
-                    <div className="relative z-20 flex flex-col items-center gap-6">
-                      <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-all duration-300 shadow-2xl">
-                        <div className="w-0 h-0 border-l-12 border-l-transparent border-r-0 border-r-transparent border-t-8 border-t-transparent border-b-8 border-b-transparent" style={{borderLeft: '10px solid white', borderTop: '6px solid transparent', borderBottom: '6px solid transparent'}}></div>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-white font-semibold text-sm">Watch Richard's Story</p>
-                        <p className="text-slate-400 text-xs mt-1">White Glove Roofing</p>
-                      </div>
-                    </div>
-                    
-                    {/* Video tag for reference */}
-                    <video
-                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      controls
-                      preload="none"
-                    >
-                      <source src="/richard-review.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cort-900/30 text-cort-400 text-xs font-bold mb-6 w-fit">
-                    CUSTOM AI IMPLEMENTATION
-                  </div>
-                  <h2 className="text-3xl font-bold text-white mb-6">
-                    How we replaced "junk leads" with high-value homeowners
-                  </h2>
-                  <p className="text-slate-400 mb-8 leading-relaxed">
-                    White Glove Roofing was struggling with generic lead aggregators that sold the same contact to 10 competitors. 
-                    Cort X AI built a custom geospatial scraper that identified residential properties with older roofs in high-income zip codes, cross-referencing them with recent storm path data.
-                  </p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <TrendingUp className="h-5 w-5 text-emerald-500" />
-                        <span className="text-2xl font-bold text-white">3.5x</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Increase in Quote Requests</p>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <DollarSign className="h-5 w-5 text-emerald-500" />
-                        <span className="text-2xl font-bold text-white">40%</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Reduction in Cost Per Lead</p>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="h-5 w-5 text-emerald-500" />
-                        <span className="text-2xl font-bold text-white">85%</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Lead Contact Rate</p>
-                    </div>
-                  </div>
-
-                  <blockquote className="border-l-4 border-cort-500 pl-4 italic text-slate-300 text-sm">
-                    "The difference was night and day. Instead of chasing ghosts, our sales team is walking into homes that actually need our help. Cort X AI built a pipeline that we own."
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* GBP Optimization Link Section */}
-          <div className="mb-24 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-indigo-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500"></div>
-            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="bg-emerald-500/10 p-2 rounded-lg">
-                    <TrendingUp className="h-6 w-6 text-emerald-400" />
-                  </div>
-                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Local Dominance Engine</span>
-                </div>
-                <h2 className="text-3xl font-bold text-white mb-4">Automate Your Google Business Profile</h2>
-                <p className="text-slate-400 text-lg max-w-2xl">
-                  Generating leads is only half the battle. Our core AI tool, <span className="text-white font-semibold">GBP.CORTXAI.US</span>, ensures your local presence is 100% optimized to turn searchers into callers while you sleep.
-                </p>
-                <div className="flex gap-6 mt-8">
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-white">100%</span>
-                    <span className="text-[10px] text-slate-500 uppercase font-bold">Auto-Pilot</span>
-                  </div>
-                  <div className="w-px h-10 bg-slate-800"></div>
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-white">24/7</span>
-                    <span className="text-[10px] text-slate-500 uppercase font-bold">Review Mgmt</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <Button to="/live-demo" variant="primary" className="whitespace-nowrap px-8 py-4 text-base">
-                  Launch GBP AI Optimizer <Play className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-
           {/* CTA Section */}
-
-          <div className="bg-gradient-to-br from-purple-900/50 to-slate-900 border border-purple-500/30 rounded-3xl p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="bg-gradient-to-br from-emerald-900/50 to-slate-900 border border-emerald-500/30 rounded-3xl p-12 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">Need a Sample List?</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">Ready to switch to Inbound Leads?</h3>
               <p className="text-slate-300 max-w-lg">
-                Get 50 free verified leads tailored to your niche to test our data quality. No credit card required.
+                Stop paying for shared lead lists. Secure the #1 spot in your local area and let the customers call you.
               </p>
             </div>
             <div className="flex gap-4">
-              <Button to="/live-demo" variant="primary">Request Data Sample <Download className="ml-2 h-4 w-4"/></Button>
+              <Button to="/live-demo" variant="primary" className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold border-none">Start Your Free Audit <TrendingUp className="ml-2 h-4 w-4"/></Button>
             </div>
           </div>
 

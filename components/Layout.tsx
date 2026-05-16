@@ -20,7 +20,6 @@ const Layout: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Sales Agents', path: '/solutions/sales-agents' },
     { label: 'Lead Gen Tools', path: '/solutions/lead-gen' },
     { label: 'Local AIO', path: '/solutions/local-aio' },
     { label: 'Live Demo', path: '/live-demo' },
@@ -130,7 +129,7 @@ const Layout: React.FC = () => {
                     <Logo className="w-8 h-8 sm:w-10 sm:h-10" />
                   </Link>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Revolutionizing USA businesses with autonomous sales agents, intelligent lead generation, and local AIO dominance.
+                Revolutionizing USA businesses with GBP optimization, intelligent lead generation, and local AIO dominance.
               </p>
               <div className="flex gap-4">
                 {/* Social placeholders */}
@@ -148,10 +147,9 @@ const Layout: React.FC = () => {
             <div>
               <h3 className="text-white font-semibold mb-4">Solutions</h3>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><Link to="/solutions/sales-agents" className="hover:text-cort-400 transition-colors">AI Sales Agents</Link></li>
+                <li><Link to="/solutions/local-aio" className="hover:text-cort-400 transition-colors">GBP Optimization</Link></li>
                 <li><Link to="/solutions/lead-gen" className="hover:text-cort-400 transition-colors">Lead Gen Tools</Link></li>
                 <li><Link to="/solutions/local-aio" className="hover:text-cort-400 transition-colors">Local AIO Dominance</Link></li>
-                <li><Link to="/solutions/sales-agents" className="hover:text-cort-400 transition-colors">CRM Integration</Link></li>
               </ul>
             </div>
 

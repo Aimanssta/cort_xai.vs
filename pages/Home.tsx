@@ -1,26 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Bot, Target, Map, BarChart3, ShieldCheck, Zap, ChevronDown, ChevronUp, Building2, Globe2, Star, Award, Sparkles, TrendingUp, Users, Phone, Mail, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
 import LiveAgentActivity from '../components/LiveAgentActivity';
 
-const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="border-b border-slate-800/60 group">
-      <button 
-        className="w-full py-6 flex justify-between items-center text-left focus:outline-none group-hover:text-cort-300 transition-colors"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span className="text-lg font-medium text-white">{question}</span>
-        {isOpen ? <ChevronUp className="h-5 w-5 text-cort-500" /> : <ChevronDown className="h-5 w-5 text-slate-500 group-hover:text-cort-400" />}
-      </button>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <p className="text-slate-400 leading-relaxed text-base">{answer}</p>
-      </div>
-    </div>
-  );
-};
+// Replaced FAQItem with Blog Section
 
 const Home: React.FC = () => {
   return (
@@ -89,8 +74,8 @@ const Home: React.FC = () => {
               Start Your Growth Plan
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button to="/solutions/sales-agents" variant="outline" className="text-lg px-10 py-4 bg-slate-950/50 backdrop-blur-sm">
-              View Growth Services
+            <Button to="/live-demo" variant="outline" className="text-lg px-10 py-4 bg-emerald-950/50 backdrop-blur-sm border-emerald-500/50 hover:border-emerald-500 text-emerald-400 group">
+              Free Local Ranking Audit
             </Button>
           </div>
 
@@ -185,8 +170,8 @@ const Home: React.FC = () => {
                           <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-xl backdrop-blur-sm">
                              <div className="flex justify-between items-start mb-4">
                                 <div>
-                                   <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Agents Active</p>
-                                   <h4 className="text-2xl font-bold text-white mt-1">12/15</h4>
+                                   <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">GBP Rankings</p>
+                                   <h4 className="text-2xl font-bold text-white mt-1">#1 in 15 Zones</h4>
                                 </div>
                                 <div className="p-2 bg-purple-500/10 rounded-lg border border-purple-500/20">
                                    <Bot className="h-4 w-4 text-purple-400" />
@@ -239,10 +224,10 @@ const Home: React.FC = () => {
                              <h5 className="text-sm font-bold text-slate-300 mb-4">Live Activities</h5>
                              <div className="space-y-4">
                                 {[
-                                   { icon: Phone, color: 'text-blue-400', bg: 'bg-blue-500/10', text: 'Agent Sarah connected with Lead #4092', time: 'Just now' },
-                                   { icon: Mail, color: 'text-purple-400', bg: 'bg-purple-500/10', text: 'Email sequence started: "Tech SaaS"', time: '2m ago' },
-                                   { icon: CheckCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/10', text: 'Meeting booked via Calendar', time: '14m ago' },
-                                   { icon: Users, color: 'text-orange-400', bg: 'bg-orange-500/10', text: 'New lead enriched: Oracle Corp', time: '28m ago' },
+                                   { icon: Phone, color: 'text-blue-400', bg: 'bg-blue-500/10', text: 'GBP High-Intent Call Received: +1 (305) ***', time: 'Just now' },
+                                   { icon: Star, color: 'text-yellow-400', bg: 'bg-yellow-500/10', text: '5-Star Review Automatically Replied', time: '2m ago' },
+                                   { icon: CheckCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/10', text: 'Map Pack Ranking Secured for "Local AC Repair"', time: '14m ago' },
+                                   { icon: Users, color: 'text-orange-400', bg: 'bg-orange-500/10', text: 'New lead enriched: Direct from Google Search', time: '28m ago' },
                                 ].map((item, i) => (
                                    <div key={i} className="flex gap-3 items-start animate-fade-in" style={{animationDelay: `${i * 0.5 + 1}s`}}>
                                       <div className={`p-1.5 rounded-md shrink-0 ${item.bg}`}>
@@ -430,11 +415,11 @@ const Home: React.FC = () => {
               <div className="h-14 w-14 bg-slate-900/50 border border-slate-700/50 rounded-xl flex items-center justify-center mb-8 group-hover:border-cort-500/50 group-hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.3)] transition-all duration-500">
                 <Bot className="h-7 w-7 text-cort-400 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300 ease-out" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Lead Growth <br/> Systems</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">GBP <br/> Optimization</h3>
               <p className="text-slate-400 mb-8 leading-relaxed">
-                Deploy 24/7 growth workflows that engage, qualify, and book meetings. Reduce overhead while increasing high-intent touchpoints and conversion velocity.
+                Dominate the Map Pack automatically. Our AI manages reviews, posts local updates, and optimizes your profile 24/7 to bring in high-intent phone calls directly to your business.
               </p>
-              <Button to="/live-demo" variant="outline" className="w-full group-hover:bg-cort-600 group-hover:border-cort-600 group-hover:text-white transition-all duration-300">Learn More</Button>
+              <Button to="/solutions/local-aio" variant="outline" className="w-full group-hover:bg-cort-600 group-hover:border-cort-600 group-hover:text-white transition-all duration-300">Learn More</Button>
             </div>
 
             {/* Pillar 2 */}
@@ -657,8 +642,8 @@ const Home: React.FC = () => {
                 <div className="absolute -bottom-8 -left-8 bg-slate-900/95 backdrop-blur border border-slate-700 p-6 rounded-2xl shadow-2xl flex items-center gap-5 animate-float">
                   <div className="h-3 w-3 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></div>
                   <div>
-                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wide">Live Agent Activity</div>
-                    <div className="text-base font-bold text-white mt-1">Meeting Booked: <span className="text-emerald-400">+$12,000 Deal</span></div>
+                    <div className="text-xs text-slate-400 font-medium uppercase tracking-wide">Live GBP Optimization</div>
+                    <div className="text-base font-bold text-white mt-1">High-Intent Call: <span className="text-emerald-400">Captured</span></div>
                   </div>
                 </div>
               </div>
@@ -667,38 +652,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-slate-900/30 border-t border-slate-800/50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-            <p className="text-slate-400 text-lg">Common questions about implementing AI in your workflow.</p>
-          </div>
-          
-          <div className="space-y-2">
-            <FAQItem 
-              question="How is Cort X AI different from traditional lead generation agencies?" 
-              answer="Unlike agencies that rely on manual list building and generic cold calling, Cort X AI uses proprietary algorithms to scrape, enrich, and contact leads in real-time. We don't just sell you data; we build an autonomous system that books meetings for you, reducing your cost-per-acquisition by up to 60%." 
-            />
-            <FAQItem 
-              question="Is your system compliant with US Regulations (TCPA, CAN-SPAM)?" 
-              answer="Absolutely. Our platform includes built-in compliance checks. We scrub all phone numbers against the DNC (Do Not Call) registry and ensure all email outreach includes mandatory opt-out mechanisms, keeping your business safe while you scale." 
-            />
-            <FAQItem 
-              question="Does Cort X AI integrate with my existing CRM?" 
-              answer="Yes. We offer native 2-way integration with Salesforce, HubSpot, Pipedrive, GoHighLevel, and Zoho. Our agents update lead statuses, log calls, and save conversation transcripts directly into your system of record." 
-            />
-            <FAQItem 
-              question="What industries do you specialize in?" 
-              answer="While our tools are agnostic, we have deep training models specifically for SaaS, Real Estate, Financial Services, Solar/Home Services, and Logistics. Our AI understands the specific jargon and pain points of these US markets." 
-            />
-            <FAQItem 
-              question="What is the difference between SEO and Local AIO?" 
-              answer="Traditional SEO focuses on ranking for keywords on Google Search. Local AIO (Artificial Intelligence Optimization) focuses on making your business the primary answer for AI models like ChatGPT, Gemini, and Search Generative Experience (SGE). It's the future of search visibility." 
-            />
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA */}
       <section className="py-24 relative overflow-hidden">
