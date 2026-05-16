@@ -48,7 +48,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log('Lead stored in MongoDB:', result.insertedId);
 
     // Send notification email
-    const adminEmail = process.env.ADMIN_EMAIL || 'hello@cortxai.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'support@cortxai.us';
     await sendEmail({
       to: adminEmail,
       subject: `New Lead: ${name}`,

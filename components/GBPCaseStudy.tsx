@@ -81,6 +81,21 @@ const GBPCaseStudy: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Hialeah Ranking Proof */}
+                <div className="relative mt-8 group">
+                  <div className="absolute inset-0 bg-emerald-500/10 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <img 
+                    src="/borges-ranking.PNG" 
+                    alt="Rank #1 in AI Search - Hialeah, FL" 
+                    className="relative z-10 rounded-xl border border-slate-700 w-full object-cover h-48 shadow-lg" 
+                  />
+                  <div className="absolute top-4 -right-2 bg-white text-slate-900 px-3 py-1.5 rounded-lg shadow-xl z-20 flex items-center gap-2 font-bold text-[10px]">
+                    <TrendingUp className="h-3 w-3 text-emerald-600" />
+                    <span>Rank #1 in Hialeah, FL</span>
+                  </div>
+                </div>
+
+
                 <div className="pt-4 mt-6">
                   <p className="text-sm text-slate-400 italic">
                     "Since integrating GBP.cortxai.us, we've stopped worrying about GMB updates. The AI handles our posts and reviews, and the heatmap tool showed us exactly where our competitors were weak."

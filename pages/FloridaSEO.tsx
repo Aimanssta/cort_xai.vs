@@ -38,7 +38,7 @@ const FloridaSEO: React.FC = () => {
             { '@type': 'City', name: 'Orlando' },
           ],
           telephone: '+1-321-534-0423',
-          email: 'daniel@cortxai.us',
+          email: 'support@cortxai.us',
           url: 'https://www.cortxai.us',
           priceRange: '$$',
           aggregateRating: {

@@ -162,7 +162,7 @@ const LiveDemo: React.FC = () => {
               </div>
               <div>
                 <h5 className="text-xs font-bold text-slate-300 uppercase tracking-widest mb-4">Contact</h5>
-                <p className="text-slate-500 text-sm">daniel@cortxai.us</p>
+                <p className="text-slate-500 text-sm mt-1">support@cortxai.us</p>
                 <p className="text-slate-500 text-sm mt-1">321-534-0423</p>
               </div>
             </div>

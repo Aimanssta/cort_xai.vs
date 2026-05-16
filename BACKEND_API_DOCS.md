@@ -26,8 +26,8 @@ EMAIL_PORT=587
 EMAIL_SECURE=false
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-app-password
-EMAIL_FROM=hello@cortxai.com
-ADMIN_EMAIL=hello@cortxai.com
+EMAIL_FROM=support@cortxai.us
+ADMIN_EMAIL=support@cortxai.us
 
 # Authentication
 JWT_SECRET=your-super-secret-jwt-key-change-this
@@ -209,7 +209,7 @@ const jwt = require('jsonwebtoken');
 const token = jwt.sign(
   { 
     userId: 'admin-user-123',
-    email: 'admin@cortxai.com',
+    email: 'support@cortxai.us',
     role: 'admin'
   },
   'your-super-secret-jwt-key-change-this',
