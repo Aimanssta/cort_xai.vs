@@ -226,6 +226,123 @@ const LocalAIO: React.FC = () => {
             </div>
           </div>
 
+          {/* Contractor Testimonials */}
+          <div className="mb-24 border-t border-slate-800 pt-24">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-4 uppercase tracking-wider">
+                Real Contractor Results
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Contractors Dominating Their Local Markets</h2>
+              <p className="text-slate-400 max-w-2xl mx-auto">These are real results from real contractors using GBP Cortx to rank #1 and capture more inbound calls.</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  quote: "Within 60 days, I went from page 2 of Google to #1 in my area. My phone rings every single day now with qualified roofing jobs.",
+                  name: "Marcus T.",
+                  title: "Owner, Peak Roofing Solutions",
+                  location: "Dallas, TX",
+                  result: "+340% Inbound Calls",
+                  stars: 5
+                },
+                {
+                  quote: "I used to spend $3,000/month on lead services. Now GBP Cortx has me at the top of Maps and the calls come to me. Best ROI I've ever seen.",
+                  name: "Jennifer R.",
+                  title: "Owner, Comfort HVAC Services",
+                  location: "Chicago, IL",
+                  result: "Saved $36k/year",
+                  stars: 5
+                },
+                {
+                  quote: "Honestly didn't believe it would work this fast. 6 weeks in and we're showing up #1 for 'plumber near me' in three different zip codes.",
+                  name: "Carlos M.",
+                  title: "Owner, M&M Plumbing Co.",
+                  location: "Miami, FL",
+                  result: "#1 in 3 Zip Codes",
+                  stars: 5
+                }
+              ].map((t, i) => (
+                <div key={i} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col hover:border-emerald-500/40 transition-colors">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(t.stars)].map((_, s) => <Star key={s} className="h-4 w-4 text-yellow-400 fill-yellow-400" />)}
+                  </div>
+                  <blockquote className="text-slate-300 italic leading-relaxed flex-grow mb-6">"{t.quote}"</blockquote>
+                  <div className="border-t border-slate-800 pt-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="text-white font-bold text-sm">{t.name}</p>
+                        <p className="text-slate-500 text-xs">{t.title}</p>
+                        <p className="text-slate-600 text-xs">{t.location}</p>
+                      </div>
+                      <div className="bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-lg text-right">
+                        <p className="text-emerald-400 font-bold text-sm">{t.result}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Comparison Table */}
+            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12">
+              <div className="text-center mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">GBP Cortx vs. General SEO Tools</h3>
+                <p className="text-slate-400">Why a contractor-specialist beats a general-purpose tool every time.</p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-800">
+                      <th className="text-left py-4 px-4 text-slate-400 font-semibold">Feature</th>
+                      <th className="text-center py-4 px-4">
+                        <span className="text-white font-bold text-base">GBP Cortx</span>
+                        <div className="text-emerald-400 text-xs font-bold">Contractor Specialist</div>
+                      </th>
+                      <th className="text-center py-4 px-4 text-slate-500 font-semibold">Semrush</th>
+                      <th className="text-center py-4 px-4 text-slate-500 font-semibold">SEO.ai</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800">
+                    {[
+                      ['Built for Local Contractors', true, false, false],
+                      ['Auto-manages Google Business Profile', true, false, false],
+                      ['24/7 Review Request & Reply AI', true, false, false],
+                      ['Google Maps "Map Pack" Ranking', true, 'Partial', false],
+                      ['Contractor-specific keyword targeting', true, false, false],
+                      ['AI-generated GBP Posts (weekly)', true, false, false],
+                      ['Local Citation Building (50+ dirs)', true, 'Partial', false],
+                      ['No long-term contracts required', true, false, 'Partial'],
+                      ['Setup in 24 hours', true, false, false],
+                      ['Price (entry plan)', '$99/mo', '$129/mo', '$49/mo'],
+                    ].map(([feature, cortx, semrush, seoai], i) => (
+                      <tr key={i} className="hover:bg-slate-800/30 transition-colors">
+                        <td className="py-4 px-4 text-slate-300">{feature}</td>
+                        <td className="py-4 px-4 text-center">
+                          {cortx === true ? <CheckCircle className="h-5 w-5 text-emerald-400 mx-auto" /> :
+                           <span className="text-emerald-300 font-bold text-sm">{cortx}</span>}
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          {semrush === false ? <span className="text-slate-600 text-lg">—</span> :
+                           semrush === true ? <CheckCircle className="h-5 w-5 text-slate-500 mx-auto" /> :
+                           <span className="text-slate-500 text-sm">{semrush}</span>}
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          {seoai === false ? <span className="text-slate-600 text-lg">—</span> :
+                           seoai === true ? <CheckCircle className="h-5 w-5 text-slate-500 mx-auto" /> :
+                           <span className="text-slate-500 text-sm">{seoai}</span>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-8 text-center">
+                <Button to="/live-demo" variant="primary" className="px-10 py-4">Start Your Free Audit — No Contract Required</Button>
+              </div>
+            </div>
+          </div>
+
           {/* AI Insights & Local Search Trends */}
           <AIInsights />
         </div>

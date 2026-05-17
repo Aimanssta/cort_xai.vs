@@ -55,18 +55,25 @@ const Home: React.FC = () => {
           </div>
           
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white mb-8 animate-slide-up leading-tight">
-            Turn Data Into <br/>
-            <span className="gradient-text relative">
-              Revenue
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-8 animate-slide-up leading-tight">
+            Rank #1 on Google Maps. <br/>
+            <span className="text-emerald-500 relative">
+              Get More Contractor Jobs.
               <Sparkles className="absolute -top-6 -right-8 text-yellow-400 h-8 w-8 animate-float opacity-80" />
             </span>
           </h1>
+
+          {/* Service Pills */}
+          <div className="flex flex-wrap justify-center gap-3 mb-8 animate-slide-up" style={{animationDelay: '0.05s'}}>
+            {['Roofing', 'HVAC', 'Plumbing', 'Landscaping', 'Solar', 'Home Services'].map(s => (
+              <span key={s} className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium">{s}</span>
+            ))}
+          </div>
           
-          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-12 animate-slide-up leading-relaxed" style={{animationDelay: '0.1s'}}>
-            Cort X AI connects your marketing, lead generation, and local market presence into one <span className="text-white font-semibold">intelligent growth ecosystem</span>. 
-            Generate more traffic, capture better leads, and convert them faster.
+          <p className="mt-2 max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-4 animate-slide-up leading-relaxed" style={{animationDelay: '0.1s'}}>
+            GBP Cortx automatically optimizes your Google Business Profile 24/7 — so high-intent local customers call <span className="text-white font-semibold">you</span> instead of your competitor.
           </p>
+          <p className="text-emerald-400 font-bold text-sm mb-12 animate-slide-up tracking-wide" style={{animationDelay: '0.12s'}}>✓ No Long-term Contracts &nbsp;&nbsp; ✓ Setup in 24 Hours &nbsp;&nbsp; ✓ Cancel Anytime</p>
           
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-5 animate-slide-up" style={{animationDelay: '0.2s'}}>
