@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
       <SEO 
         title="Contact Cort X AI - Book a Demo & Sales Consultation | USA & Florida"
         description="Contact Cort X AI for a free demo and consultation. AI sales agents, lead generation, and local SEO optimization for USA and Florida markets. Schedule your demo with our sales team."
-        keywords="contact sales, book demo, consultation, AI sales demo, lead generation consultation, local SEO consultation, marketing automation demo, sales agents demo, Cort X AI contact"
+        keywords="book demo GBP Cortx, contractor marketing consultation, local SEO demo, google maps ranking demo, free GBP audit, GBP optimization consultation, Cort X AI contact"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'ContactPoint',

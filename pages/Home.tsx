@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <SEO 
         title="Traffic, Leads & Organic Growth | USA & Florida Marketing Intelligence"
         description="Cort X AI helps businesses generate more traffic and leads through organic marketing, SEO, AI optimization, reputation management, CRM systems, and AI-powered growth tools. We build scalable funnels that help companies expand, convert, and grow toward multi-million dollar success."
-        keywords="organic marketing, SEO services, AI optimization, reputation management, CRM tools, lead generation, traffic generation, local SEO services, business growth automation, marketing automation USA, Google Business Profile optimization, affordable SEO packages, enterprise SEO strategy"
+        keywords="google business profile management for contractors, contractor marketing, local SEO for home services, GBP optimization service, how to get more contractor leads, google maps ranking for contractors, AI local SEO, roofing SEO, HVAC marketing, plumber marketing, contractor lead generation"
         schema={{
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
